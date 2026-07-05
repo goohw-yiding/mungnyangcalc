@@ -29,4 +29,23 @@ button.go:hover{background:var(--accent-dark)}
 .toolgrid p{font-size:.85rem;color:var(--sub)}
 .faq h3{font-size:1rem;margin:16px 0 4px}
 .faq p{font-size:.9rem;color:var(--sub)}
-footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--sub);text-align:center}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--sub);text-align:center;padding-bottom:44px}
+table.vtable{width:100%;border-collapse:collapse;margin-top:14px;font-size:.92rem}
+table.vtable th,table.vtable td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+table.vtable th{color:var(--sub);font-weight:600;font-size:.82rem}
+table.vtable tr.next{background:#fff8ee;font-weight:700}
+table.vtable td .tag{font-size:.75rem;padding:2px 8px;border-radius:20px;background:#eee;color:var(--sub)}
+table.vtable tr.next td .tag{background:var(--accent);color:#fff}
+article p{margin:0 0 14px;font-size:.95rem}
+article h2{font-size:1.15rem;margin:26px 0 10px}
+article ul{margin:0 0 14px 20px;font-size:.95rem}
+article .cta{display:block;background:#fff8ee;border:1.5px solid var(--accent);border-radius:12px;padding:14px 16px;margin:18px 0;text-decoration:none;color:var(--ink);font-weight:600}
+#walker{position:fixed;bottom:4px;left:0;font-size:1.7rem;z-index:50;pointer-events:none;animation:walk 32s linear infinite;filter:drop-shadow(0 2px 2px rgba(0,0,0,.15))}
+@keyframes walk{0%{transform:translateX(-10vw) scaleX(-1)}12.5%{transform:translateX(17.5vw) scaleX(-1) translateY(-3px)}25%{transform:translateX(45vw) scaleX(-1)}37.5%{transform:translateX(72vw) scaleX(-1) translateY(-3px)}49.9%{transform:translateX(104vw) scaleX(-1)}50%{transform:translateX(104vw) scaleX(1)}62.5%{transform:translateX(72vw) scaleX(1) translateY(-3px)}75%{transform:translateX(45vw) scaleX(1)}87.5%{transform:translateX(17.5vw) scaleX(1) translateY(-3px)}100%{transform:translateX(-10vw) scaleX(1)}}
+.pop{position:absolute;font-size:1.25rem;z-index:60;pointer-events:none;opacity:0;animation:popfly 1.6s ease-out forwards}
+@keyframes popfly{0%{opacity:0;transform:translateY(8px) scale(.5) rotate(-8deg)}18%{opacity:1}100%{opacity:0;transform:translateY(-52px) scale(1.3) rotate(10deg)}}
+header.site .paw{display:inline-block;animation:wiggle 3.5s ease-in-out infinite}
+@keyframes wiggle{0%,88%,100%{transform:rotate(0)}91%{transform:rotate(16deg)}94%{transform:rotate(-12deg)}97%{transform:rotate(8deg)}}
+.toolgrid a:hover .emoji{display:inline-block;animation:hop .45s ease}
+@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px) rotate(-6deg)}}
+@media (prefers-reduced-motion:reduce){#walker,.pop,header.site .paw,.toolgrid a:hover .emoji{animation:none}}

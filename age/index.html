@@ -6,6 +6,7 @@
 <title>강아지 나이 계산기 · 고양이 나이 계산기 - 사람 나이로 환산 | 멍냥계산기</title>
 <meta name="description" content="강아지 나이, 고양이 나이를 사람 나이로 환산하는 무료 계산기. 소형견·중형견·대형견 견종 크기를 반영한 정확한 환산표 기반. 회원가입 없이 바로 계산.">
 <link rel="stylesheet" href="/style.css">
+<script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"강아지·고양이 나이 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
 </script>
@@ -95,6 +96,7 @@ function calc(){
   else stage='세심한 돌봄이 필요한 노년기예요 💛';
   document.getElementById('stage').textContent=stage;
   document.getElementById('result').classList.add('show');
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }
 </script>
 </body>

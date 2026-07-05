@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강아지 예방접종 시기 계산기 · 고양이 예방접종 일정표 | 멍냥계산기</title>
+<meta name="description" content="강아지 예방접종 시기, 고양이 예방접종 일정을 생일만 입력하면 날짜별로 계산해주는 무료 도구. 종합백신·코로나·켄넬코프·광견병 접종 스케줄을 한눈에.">
+<link rel="stylesheet" href="/style.css">
+<script src="/fun.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 예방접종 일정 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
+</script>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
+
+<h1>예방접종 일정 계산기</h1>
+<p class="desc">생일만 입력하면 접종별 예정 날짜를 계산해드립니다. 다음에 맞아야 할 접종이 강조 표시됩니다.</p>
+
+<div class="card">
+  <label>반려동물 종류</label>
+  <div class="seg" id="species">
+    <button class="on" data-v="dog">🐶 강아지</button>
+    <button data-v="cat">🐱 고양이</button>
+  </div>
+
+  <label>생년월일 (모르면 대략적인 추정일)</label>
+  <input type="date" id="birth">
+
+  <button class="go" onclick="calc()">접종 일정 계산하기</button>
+
+  <div class="result" id="result">
+    <div id="summary" class="big"></div>
+    <table class="vtable" id="schedule"></table>
+    <div class="note">병원·지역에 따라 프로그램이 다를 수 있으니 첫 방문 시 수의사와 일정을 확정하세요. 성견·성묘는 이후 매년 종합백신·광견병 추가접종이 권장됩니다.</div>
+  </div>
+</div>
+
+<div class="card faq">
+  <h3>접종 전 주의사항</h3>
+  <p>접종 당일은 목욕·산책을 피하고, 컨디션이 안 좋으면 일정을 미루세요. 접종 후 얼굴 부음, 구토, 무기력이 심하면 바로 병원에 연락해야 합니다.</p>
+  <h3>산책은 언제부터 가능한가요?</h3>
+  <p>일반적으로 기초 접종이 어느 정도 진행된 후(종합백신 2~3차 이후) 짧은 산책부터 시작하고, 접종 완료 전에는 다른 동물과의 접촉을 피하는 것이 안전합니다.</p>
+</div>
+
+<footer>© 멍냥계산기 · 계산 결과는 참고용이며 수의학적 진단을 대신하지 않습니다.</footer>
+</div>
+
+<script>
+let species='dog';
+document.querySelectorAll('#species button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#species button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    species=b.dataset.v;
+  };
+});
+const plans={
+  dog:[[6,'종합백신(DHPPL) 1차 + 코로나 장염 1차'],[8,'종합백신 2차 + 코로나 장염 2차'],[10,'종합백신 3차 + 켄넬코프 1차'],[12,'종합백신 4차 + 켄넬코프 2차'],[14,'종합백신 5차 + 인플루엔자 1차'],[16,'인플루엔자 2차 + 광견병 + 항체가 검사']],
+  cat:[[8,'종합백신(FVRCP) 1차'],[11,'종합백신 2차'],[14,'종합백신 3차 + 백혈병 1차(선택)'],[17,'백혈병 2차(선택) + 광견병'],[18,'항체가 검사']]
+};
+function fmt(d){return d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0');}
+function calc(){
+  const v=document.getElementById('birth').value;
+  if(!v){alert('생년월일을 입력해주세요.');return;}
+  const birth=new Date(v);
+  const today=new Date();today.setHours(0,0,0,0);
+  if(birth>today){alert('생년월일이 미래 날짜입니다.');return;}
+  let rows='<tr><th>예정일</th><th>접종 내용</th><th></th></tr>';
+  let nextFound=false,done=0;
+  const plan=plans[species];
+  plan.forEach(([wk,name])=>{
+    const d=new Date(birth.getTime()+wk*7*86400000);
+    const past=d<today;
+    if(past)done++;
+    const isNext=!past&&!nextFound;
+    if(isNext)nextFound=true;
+    rows+='<tr'+(isNext?' class="next"':'')+'><td>'+fmt(d)+'<br><span style="color:var(--sub);font-size:.8rem">생후 '+wk+'주</span></td><td>'+name+'</td><td><span class="tag">'+(past?'지남':isNext?'다음 접종':'예정')+'</span></td></tr>';
+  });
+  document.getElementById('schedule').innerHTML=rows;
+  const s=document.getElementById('summary');
+  if(done>=plan.length)s.textContent='기초 접종 시기가 모두 지났어요';
+  else if(done===0)s.textContent='기초 접종을 시작할 시기예요';
+  else s.textContent='기초 접종 '+done+'/'+plan.length+' 단계 진행 시점';
+  document.getElementById('result').classList.add('show');
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+}
+</script>
+</body>
+</html>
