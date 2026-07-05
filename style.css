@@ -1,0 +1,32 @@
+:root{--bg:#fdfaf5;--card:#ffffff;--ink:#2d2a26;--sub:#7a736a;--accent:#f4a259;--accent-dark:#e08a3c;--line:#eee5d8;--good:#4a934a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:20px 16px 60px}
+header.site{display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:24px}
+header.site a{text-decoration:none;color:var(--ink);font-weight:800;font-size:1.15rem}
+header.site .paw{font-size:1.3rem}
+h1{font-size:1.5rem;margin-bottom:6px}
+p.desc{color:var(--sub);font-size:.95rem;margin-bottom:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+label{display:block;font-weight:600;font-size:.9rem;margin:14px 0 6px}
+input,select{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font-size:1rem;background:#fff}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+.seg{display:flex;gap:8px;margin-top:6px}
+.seg button{flex:1;padding:11px 0;border:1.5px solid var(--line);background:#fff;border-radius:10px;font-size:.95rem;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+button.go{width:100%;margin-top:20px;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer}
+button.go:hover{background:var(--accent-dark)}
+.result{display:none;margin-top:18px;padding:18px;background:#fff8ee;border:1.5px solid var(--accent);border-radius:12px}
+.result.show{display:block}
+.result .big{font-size:1.6rem;font-weight:800;color:var(--accent-dark)}
+.result .note{font-size:.85rem;color:var(--sub);margin-top:8px}
+.toolgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.toolgrid{grid-template-columns:1fr}}
+.toolgrid a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-decoration:none;color:var(--ink)}
+.toolgrid a:hover{border-color:var(--accent)}
+.toolgrid .emoji{font-size:1.8rem}
+.toolgrid h2{font-size:1.05rem;margin:8px 0 4px}
+.toolgrid p{font-size:.85rem;color:var(--sub)}
+.faq h3{font-size:1rem;margin:16px 0 4px}
+.faq p{font-size:.9rem;color:var(--sub)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--sub);text-align:center}

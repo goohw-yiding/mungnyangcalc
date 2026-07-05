@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강아지 나이 계산기 · 고양이 나이 계산기 - 사람 나이로 환산 | 멍냥계산기</title>
+<meta name="description" content="강아지 나이, 고양이 나이를 사람 나이로 환산하는 무료 계산기. 소형견·중형견·대형견 견종 크기를 반영한 정확한 환산표 기반. 회원가입 없이 바로 계산.">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"강아지·고양이 나이 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
+</script>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
+
+<h1>강아지·고양이 나이 계산기</h1>
+<p class="desc">우리 아이는 사람 나이로 몇 살일까요? 견종 크기에 따라 노화 속도가 다른 것까지 반영해 계산합니다.</p>
+
+<div class="card">
+  <label>반려동물 종류</label>
+  <div class="seg" id="species">
+    <button class="on" data-v="dog">🐶 강아지</button>
+    <button data-v="cat">🐱 고양이</button>
+  </div>
+
+  <div id="sizeRow">
+    <label>견종 크기</label>
+    <select id="size">
+      <option value="small">소형견 (10kg 미만 · 말티즈, 푸들, 치와와 등)</option>
+      <option value="medium">중형견 (10~25kg · 코카스파니엘, 보더콜리 등)</option>
+      <option value="large">대형견 (25kg 이상 · 리트리버, 셰퍼드 등)</option>
+    </select>
+  </div>
+
+  <label>나이 (만 나이)</label>
+  <input type="number" id="years" min="0" max="30" step="0.5" placeholder="예: 3 (3살) 또는 0.5 (6개월)">
+
+  <button class="go" onclick="calc()">사람 나이로 계산하기</button>
+
+  <div class="result" id="result">
+    <div>사람 나이로 약</div>
+    <div class="big" id="humanAge"></div>
+    <div id="stage"></div>
+    <div class="note">개체와 건강 상태에 따라 차이가 있을 수 있습니다.</div>
+  </div>
+</div>
+
+<div class="card faq">
+  <h3>강아지 나이는 어떻게 계산하나요?</h3>
+  <p>"개 나이 × 7"은 옛날 방식입니다. 개는 생후 1~2년에 빠르게 성숙하고 이후 노화 속도가 견종 크기에 따라 달라집니다. 첫 1년은 사람 나이 약 15세, 2년째는 약 24세에 해당하며, 이후 소형견은 매년 약 4세, 중형견은 약 5세, 대형견은 약 6~7세씩 나이를 먹습니다.</p>
+  <h3>고양이 나이는요?</h3>
+  <p>고양이는 첫 1년이 사람 나이 15세, 2년째가 24세, 이후 매년 약 4세씩 더해집니다. 실내묘 기준이며 실외 생활 고양이는 노화가 더 빠를 수 있습니다.</p>
+  <h3>노령견·노령묘 기준은?</h3>
+  <p>일반적으로 소형견 11세, 중형견 10세, 대형견 8세, 고양이 11세 전후부터 노령기로 봅니다. 노령기에는 건강검진 주기를 6개월에 한 번으로 줄이는 것이 권장됩니다.</p>
+</div>
+
+<footer>© 멍냥계산기 · 계산 결과는 참고용입니다.</footer>
+</div>
+
+<script>
+let species='dog';
+document.querySelectorAll('#species button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#species button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    species=b.dataset.v;
+    document.getElementById('sizeRow').style.display=species==='dog'?'block':'none';
+  };
+});
+function dogAge(y,size){
+  if(y<=0)return 0;
+  if(y<=1)return 15*y;
+  if(y<=2)return 15+9*(y-1);
+  const per={small:4,medium:5,large:6.5}[size];
+  return 24+(y-2)*per;
+}
+function catAge(y){
+  if(y<=0)return 0;
+  if(y<=1)return 15*y;
+  if(y<=2)return 15+9*(y-1);
+  return 24+(y-2)*4;
+}
+function calc(){
+  const y=parseFloat(document.getElementById('years').value);
+  if(isNaN(y)||y<0||y>30){alert('나이를 0~30 사이로 입력해주세요.');return;}
+  const size=document.getElementById('size').value;
+  const h=species==='dog'?dogAge(y,size):catAge(y);
+  const hr=Math.round(h);
+  document.getElementById('humanAge').textContent=hr+'세';
+  let stage='';
+  if(h<18)stage='아직 어린이·청소년기예요 🌱';
+  else if(h<40)stage='활발한 청년기예요 💪';
+  else if(h<60)stage='건강 관리가 중요한 중년기예요 🩺';
+  else stage='세심한 돌봄이 필요한 노년기예요 💛';
+  document.getElementById('stage').textContent=stage;
+  document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>
