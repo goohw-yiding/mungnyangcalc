@@ -46,6 +46,12 @@
     <div class="big" id="humanAge"></div>
     <div id="stage"></div>
     <div class="note">개체와 건강 상태에 따라 차이가 있을 수 있습니다.</div>
+    <a id="suppbuy" class="buybox" href="https://link.coupang.com/a/fiyl65SQxw" target="_blank" rel="nofollow sponsored noopener">
+      <span class="bb-ico">💪</span>
+      <span class="bb-txt"><b id="supp-title">우리 아이 근육·기력 챙기는 단백질 보충제</b><span class="bb-sub">쿠팡 로켓배송 인기 반려동물 영양제</span></span>
+      <span class="bb-arrow">›</span>
+    </a>
+    <div class="bb-disc">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
     <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
     <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
       <a href="/food/"><span class="e">🍚</span> 하루 사료량 계산</a>
@@ -104,6 +110,9 @@ function calc(){
   else if(h<60)stage='건강 관리가 중요한 중년기예요 🩺';
   else stage='세심한 돌봄이 필요한 노년기예요 💛';
   document.getElementById('stage').textContent=stage;
+  document.getElementById('supp-title').textContent = h>=40
+    ? '나이 들수록 근육 지키기! 반려동물 단백질 보충제'
+    : '우리 아이 근육·기력 챙기는 단백질 보충제';
   window.__share='우리 아이는 사람 나이로 약 '+hr+'세! '+stage.replace(/[🌱💪🩺💛]/g,'').trim()+' 🐾 멍냥계산기';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
