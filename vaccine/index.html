@@ -36,6 +36,13 @@
     <div id="summary" class="big"></div>
     <table class="vtable" id="schedule"></table>
     <div class="note">병원·지역에 따라 프로그램이 다를 수 있으니 첫 방문 시 수의사와 일정을 확정하세요. 성견·성묘는 이후 매년 종합백신·광견병 추가접종이 권장됩니다.</div>
+    <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/age/"><span class="e">🎂</span> 우리 아이 나이 계산</a>
+      <a href="/food/"><span class="e">🍚</span> 하루 사료량 계산</a>
+      <a class="buy" href="/blog/dog-vaccine-guide/"><span class="e">💉</span> 접종 비용·순서 총정리</a>
+      <a class="buy" href="/blog/puppy-checklist/"><span class="e">🏠</span> 입양 준비물 체크리스트</a>
+    </div></div>
   </div>
 </div>
 
@@ -85,6 +92,7 @@ function calc(){
   if(done>=plan.length)s.textContent='기초 접종 시기가 모두 지났어요';
   else if(done===0)s.textContent='기초 접종을 시작할 시기예요';
   else s.textContent='기초 접종 '+done+'/'+plan.length+' 단계 진행 시점';
+  window.__share='우리 아이 '+s.textContent+' 💉 멍냥계산기에서 접종 일정 확인';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }

@@ -46,6 +46,13 @@
     <div class="big" id="humanAge"></div>
     <div id="stage"></div>
     <div class="note">개체와 건강 상태에 따라 차이가 있을 수 있습니다.</div>
+    <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/food/"><span class="e">🍚</span> 하루 사료량 계산</a>
+      <a href="/vaccine/"><span class="e">💉</span> 예방접종 일정</a>
+      <a class="buy" href="/blog/senior-dog/"><span class="e">🧓</span> 노령견 관리법</a>
+      <a class="buy" href="/blog/dog-weight/"><span class="e">⚖️</span> 우리 아이 비만일까?</a>
+    </div></div>
   </div>
 </div>
 
@@ -97,6 +104,7 @@ function calc(){
   else if(h<60)stage='건강 관리가 중요한 중년기예요 🩺';
   else stage='세심한 돌봄이 필요한 노년기예요 💛';
   document.getElementById('stage').textContent=stage;
+  window.__share='우리 아이는 사람 나이로 약 '+hr+'세! '+stage.replace(/[🌱💪🩺💛]/g,'').trim()+' 🐾 멍냥계산기';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }

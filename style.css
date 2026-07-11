@@ -49,3 +49,13 @@ header.site .paw{display:inline-block;animation:wiggle 3.5s ease-in-out infinite
 .toolgrid a:hover .emoji{display:inline-block;animation:hop .45s ease}
 @keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px) rotate(-6deg)}}
 @media (prefers-reduced-motion:reduce){#walker,.pop,header.site .paw,.toolgrid a:hover .emoji{animation:none}}
+.sharebtn{margin-top:14px;width:100%;padding:12px;border:1.5px solid var(--accent);background:#fff;color:var(--accent-dark);border-radius:10px;font-weight:700;cursor:pointer}
+.sharebtn:hover{background:var(--accent);color:#fff}
+.reco{margin-top:22px}
+.reco h4{font-size:.92rem;margin:0 0 10px;color:var(--sub);font-weight:700}
+.recogrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.recogrid{grid-template-columns:1fr}}
+.recogrid a{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;text-decoration:none;color:var(--ink);font-size:.9rem;font-weight:600}
+.recogrid a:hover{border-color:var(--accent)}
+.recogrid a.buy{background:#fff8ee;border-color:var(--accent)}
+.recogrid .e{font-size:1.35rem;flex-shrink:0}

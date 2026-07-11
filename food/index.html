@@ -49,6 +49,13 @@
     <div class="big" id="grams"></div>
     <div id="kcalOut"></div>
     <div class="note">하루 2회 급여 시 한 끼 <span id="perMeal"></span>씩 주세요. 간식을 주는 날은 사료를 10~20% 줄이는 것이 좋습니다.</div>
+    <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/blog/dog-food-change/"><span class="e">🔄</span> 사료 바꾸는 법</a>
+      <a href="/age/"><span class="e">🎂</span> 우리 아이 나이 계산</a>
+      <a class="buy" href="/blog/cat-fountain-guide/"><span class="e">⛲</span> 급수기 고르는 법</a>
+      <a class="buy" href="/blog/dental-chew-guide/"><span class="e">🦴</span> 덴탈껌 고르는 법</a>
+    </div></div>
   </div>
 </div>
 
@@ -88,6 +95,7 @@ function calc(){
   document.getElementById('grams').textContent='약 '+g+'g';
   document.getElementById('kcalOut').textContent='하루 필요 칼로리: 약 '+Math.round(mer)+' kcal';
   document.getElementById('perMeal').textContent=Math.round(g/2)+'g';
+  window.__share='우리 아이 하루 사료량은 약 '+g+'g! (하루 필요 열량 약 '+Math.round(mer)+'kcal) 🐶 멍냥계산기에서 확인';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }
