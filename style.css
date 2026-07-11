@@ -66,4 +66,6 @@ header.site .paw{display:inline-block;animation:wiggle 3.5s ease-in-out infinite
 .buybox .bb-txt b{font-size:1rem}
 .buybox .bb-sub{font-size:.8rem;color:var(--sub)}
 .buybox .bb-arrow{font-size:1.6rem;color:var(--accent-dark);font-weight:800}
+.buysub{display:block;margin-top:9px;padding:11px 14px;background:#fff;border:1.5px dashed var(--accent);border-radius:10px;text-decoration:none;color:var(--accent-dark);font-size:.88rem;font-weight:600;text-align:center}
+.buysub:hover{background:#fff4e6}
 .bb-disc{font-size:.72rem;color:var(--sub);margin-top:7px;text-align:center}
