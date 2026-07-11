@@ -49,6 +49,12 @@
     <div class="big" id="grams"></div>
     <div id="kcalOut"></div>
     <div class="note">하루 2회 급여 시 한 끼 <span id="perMeal"></span>씩 주세요. 간식을 주는 날은 사료를 10~20% 줄이는 것이 좋습니다.</div>
+    <a id="foodbuy" class="buybox" href="https://link.coupang.com/a/fixPlKZa9Y" target="_blank" rel="nofollow sponsored noopener" style="display:none">
+      <span class="bb-ico">🛒</span>
+      <span class="bb-txt"><b id="bb-title">우리 아이 사료 보러가기</b><span class="bb-sub">쿠팡 로켓배송 인기 사료 · 최저가 확인</span></span>
+      <span class="bb-arrow">›</span>
+    </a>
+    <div class="bb-disc" id="bb-disc" style="display:none">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
     <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
     <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
       <a href="/blog/dog-food-change/"><span class="e">🔄</span> 사료 바꾸는 법</a>
@@ -96,6 +102,14 @@ function calc(){
   document.getElementById('kcalOut').textContent='하루 필요 칼로리: 약 '+Math.round(mer)+' kcal';
   document.getElementById('perMeal').textContent=Math.round(g/2)+'g';
   window.__share='우리 아이 하루 사료량은 약 '+g+'g! (하루 필요 열량 약 '+Math.round(mer)+'kcal) 🐶 멍냥계산기에서 확인';
+  var bb=document.getElementById('foodbuy'), bd=document.getElementById('bb-disc');
+  if(species==='dog'){
+    bb.href='https://link.coupang.com/a/fixPlKZa9Y';
+    document.getElementById('bb-title').textContent='이 체중에 맞는 강아지 사료 보러가기';
+    bb.style.display='flex'; bd.style.display='block';
+  } else {
+    bb.style.display='none'; bd.style.display='none';
+  }
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }

@@ -59,3 +59,11 @@ header.site .paw{display:inline-block;animation:wiggle 3.5s ease-in-out infinite
 .recogrid a:hover{border-color:var(--accent)}
 .recogrid a.buy{background:#fff8ee;border-color:var(--accent)}
 .recogrid .e{font-size:1.35rem;flex-shrink:0}
+.buybox{display:flex;align-items:center;gap:12px;margin-top:16px;padding:15px 16px;background:linear-gradient(135deg,#fff4e6,#ffe9cf);border:1.5px solid var(--accent);border-radius:12px;text-decoration:none;color:var(--ink)}
+.buybox:hover{background:linear-gradient(135deg,#ffe9cf,#ffdcb0)}
+.buybox .bb-ico{font-size:1.7rem;flex-shrink:0}
+.buybox .bb-txt{display:flex;flex-direction:column;flex:1;line-height:1.35}
+.buybox .bb-txt b{font-size:1rem}
+.buybox .bb-sub{font-size:.8rem;color:var(--sub)}
+.buybox .bb-arrow{font-size:1.6rem;color:var(--accent-dark);font-weight:800}
+.bb-disc{font-size:.72rem;color:var(--sub);margin-top:7px;text-align:center}
