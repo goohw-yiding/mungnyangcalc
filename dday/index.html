@@ -13,6 +13,7 @@
 <meta property="og:description" content="우리 아이와 함께한 날은 며칠? 다음 생일·기념일 D-day 계산 🐾">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
+<script src="/profile.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 기념일 D-day 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -115,6 +116,14 @@ function calc(){
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }
+(function(){
+  if(!window.MNY)return;var p=window.MNY.get();if(!p||!p.name)return;
+  document.getElementById('name').value=p.name||'';
+  if(p.birth)document.getElementById('birth').value=p.birth;
+  if(p.adopt)document.getElementById('adopt').value=p.adopt;
+  window.MNY.banner(p.name);
+  if(p.birth)window.MNY.silent(calc);
+})();
 </script>
 </body>
 </html>

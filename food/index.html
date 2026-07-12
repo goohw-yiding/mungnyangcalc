@@ -11,6 +11,7 @@
 <link rel="canonical" href="https://mungnyangcalc.com/food/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
+<script src="/profile.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"사료 급여량 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -122,6 +123,14 @@ function calc(){
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }
+(function(){
+  if(!window.MNY)return;var p=window.MNY.get();if(!p||!p.name)return;
+  window.MNY.pickSeg('#species',p.species||'dog');
+  if(p.weight)document.getElementById('weight').value=p.weight;
+  var y=window.MNY.ageYears(p.birth);if(y!=null)document.getElementById('state').value=(y<1?'puppy':(y>=7?'senior':'neutered'));
+  window.MNY.banner(p.name);
+  if(p.weight)window.MNY.silent(calc);
+})();
 </script>
 </body>
 </html>

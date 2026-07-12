@@ -13,6 +13,7 @@
 <meta property="og:description" content="우리 아이 한 달에 얼마 들까? 사료비부터 병원비까지 자동 계산 🐾">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
+<script src="/profile.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 월 양육비 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -147,6 +148,13 @@ function calc(){
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }
+(function(){
+  if(!window.MNY)return;var p=window.MNY.get();if(!p||!p.name)return;
+  window.MNY.pickSeg('#species',p.species||'dog');
+  if(p.weight)document.getElementById('w').value=p.weight;
+  window.MNY.banner(p.name);
+  if(p.weight)window.MNY.silent(calc);
+})();
 </script>
 </body>
 </html>

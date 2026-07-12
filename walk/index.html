@@ -13,6 +13,7 @@
 <meta property="og:description" content="오늘 산책으로 몇 칼로리 태웠을까? 사료 몇 g인지까지 계산 🐾">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
+<script src="/profile.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"강아지 산책 칼로리 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -103,6 +104,12 @@ function calc(){
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
 }
+(function(){
+  if(!window.MNY)return;var p=window.MNY.get();if(!p||!p.name)return;
+  window.MNY.pickSeg('#species',p.species||'dog');
+  if(p.weight)document.getElementById('w').value=p.weight;
+  window.MNY.banner(p.name);
+})();
 </script>
 </body>
 </html>
