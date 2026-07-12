@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>반려동물 생일·기념일 D-day 계산기 - 함께한 날, 입양일 계산 | 멍냥계산기</title>
+<meta name="description" content="우리 강아지·고양이의 생일과 입양일을 입력하면 함께한 날, 다음 생일 D-day, 100일·1주년 기념일을 자동으로 계산합니다. 무료·회원가입 없음.">
+<link rel="canonical" href="https://mungnyangcalc.com/dday/">
+<meta property="og:title" content="반려동물 생일·기념일 D-day 계산기">
+<meta property="og:description" content="우리 아이와 함께한 날은 며칠? 다음 생일·기념일 D-day 계산 🐾">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/style.css">
+<script src="/fun.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 기념일 D-day 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
+</script>
+<style>
+.ddrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.ddrow:last-child{border-bottom:none}
+.ddrow .dd{font-weight:800;color:var(--accent-dark)}
+.ddbig{text-align:center;margin-bottom:6px}
+.ddbig .big{font-size:1.7rem;font-weight:800;color:var(--accent-dark)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
+
+<h1>생일·기념일 D-day 계산기 🎂</h1>
+<p class="desc">우리 아이와 함께한 날은 며칠일까요? 생일과 입양일만 입력하면 함께한 일수, 다음 생일 D-day, 100일·1주년 기념일까지 계산해 드려요.</p>
+
+<div class="card">
+  <label>반려동물 이름 (선택)</label>
+  <input type="text" id="name" maxlength="12" placeholder="예: 콩이">
+
+  <label>생일</label>
+  <input type="date" id="birth">
+
+  <label>입양일 (선택 · 없으면 생일 기준)</label>
+  <input type="date" id="adopt">
+
+  <button class="go" onclick="calc()">기념일 계산하기</button>
+
+  <div class="result" id="result">
+    <div class="ddbig">
+      <div id="together-label">함께한 날</div>
+      <div class="big" id="togetherDays"></div>
+      <div class="note" id="ageNote"></div>
+    </div>
+    <div id="ddlist"></div>
+    <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/age/"><span class="e">🐶</span> 사람 나이로 계산</a>
+      <a href="/mbti/"><span class="e">🧠</span> 성격 유형 테스트</a>
+      <a href="/walk/"><span class="e">🐾</span> 산책 칼로리 계산</a>
+      <a href="/vaccine/"><span class="e">💉</span> 예방접종 일정</a>
+    </div></div>
+  </div>
+</div>
+
+<div class="card faq">
+  <h3>함께한 날은 어떤 기준인가요?</h3>
+  <p>입양일을 입력하면 입양일부터 오늘까지, 입양일이 없으면 생일부터 오늘까지의 날짜를 셉니다. 우리 아이와 보낸 소중한 시간을 숫자로 확인해 보세요.</p>
+  <h3>기념일 D-day는 무엇이 나오나요?</h3>
+  <p>다가오는 생일까지 남은 날, 그리고 함께한 100일·200일·1주년·2주년 등 다가오는 기념일을 알려드립니다. 미리 챙겨서 특별한 하루를 준비해 보세요.</p>
+</div>
+
+<footer>© 멍냥계산기 · 계산 결과는 참고용입니다. · <a href="/privacy/">개인정보처리방침</a></footer>
+</div>
+
+<script>
+function daysBetween(a,b){return Math.floor((b-a)/86400000);}
+function calc(){
+  const name=(document.getElementById('name').value||'우리 아이').trim();
+  const bv=document.getElementById('birth').value;
+  const av=document.getElementById('adopt').value;
+  if(!bv){alert('생일을 입력해주세요.');return;}
+  const today=new Date();today.setHours(0,0,0,0);
+  const birth=new Date(bv+'T00:00:00');
+  if(birth>today){alert('생일이 미래로 되어 있어요. 다시 확인해주세요.');return;}
+  const startV=av||bv;
+  const start=new Date(startV+'T00:00:00');
+  const together=daysBetween(start,today);
+  document.getElementById('together-label').textContent=name+'와(과) 함께한 날';
+  document.getElementById('togetherDays').textContent=together.toLocaleString('ko-KR')+'일째';
+  // 나이
+  let ay=today.getFullYear()-birth.getFullYear();
+  let am=today.getMonth()-birth.getMonth();
+  if(today.getDate()<birth.getDate())am--;
+  if(am<0){ay--;am+=12;}
+  document.getElementById('ageNote').textContent='만 '+ay+'세 '+am+'개월 · 생일 '+bv;
+  // 리스트
+  const rows=[];
+  // 다음 생일
+  let nb=new Date(today.getFullYear(),birth.getMonth(),birth.getDate());
+  if(nb<today)nb=new Date(today.getFullYear()+1,birth.getMonth(),birth.getDate());
+  const dToBday=daysBetween(today,nb);
+  rows.push(['🎂 다음 생일 ('+(ay+ (dToBday>=0?1:0))+'번째)', dToBday===0?'오늘! 🎉':'D-'+dToBday]);
+  // 다가오는 100일 단위
+  const nextHundred=(Math.floor(together/100)+1)*100;
+  rows.push(['💯 함께한 '+nextHundred.toLocaleString('ko-KR')+'일', 'D-'+(nextHundred-together)]);
+  // 다가오는 주년
+  const yearsPassed=Math.floor(together/365);
+  const nextAnnivDays=(yearsPassed+1)*365;
+  rows.push(['💛 함께한 '+(yearsPassed+1)+'주년(365일 기준)', 'D-'+(nextAnnivDays-together)]);
+  document.getElementById('ddlist').innerHTML=rows.map(r=>'<div class="ddrow"><span>'+r[0]+'</span><span class="dd">'+r[1]+'</span></div>').join('');
+  window.__share=name+'와(과) 함께한 지 '+together.toLocaleString('ko-KR')+'일! 다음 생일까지 '+(dToBday===0?'오늘':'D-'+dToBday)+' 🎂 멍냥계산기';
+  document.getElementById('result').classList.add('show');
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+}
+</script>
+</body>
+</html>

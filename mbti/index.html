@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리집 반려동물 성격 테스트(MBTI) - 강아지·고양이 성격유형 | 멍냥계산기</title>
+<meta name="description" content="12개 질문으로 우리 강아지·고양이의 MBTI 성격유형을 알아보세요. 16가지 반려동물 성격유형과 찰떡궁합까지. 회원가입 없이 무료, 결과 공유하기.">
+<link rel="canonical" href="https://mungnyangcalc.com/mbti/">
+<meta property="og:title" content="우리집 반려동물 성격 테스트(MBTI)">
+<meta property="og:description" content="우리 아이는 어떤 성격유형일까? 12문항으로 알아보는 반려동물 MBTI 🐾">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/style.css">
+<script src="/fun.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 성격 테스트(MBTI)","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
+</script>
+<style>
+.qwrap{margin-top:6px}
+.qbox{margin-bottom:20px}
+.qbox .qn{font-weight:700;font-size:1rem;margin-bottom:10px}
+.qbox .opt{display:block;width:100%;text-align:left;padding:13px 15px;margin-bottom:9px;border:1.5px solid var(--line);background:#fff;border-radius:11px;font-size:.95rem;cursor:pointer;line-height:1.4}
+.qbox .opt:hover{border-color:var(--accent);background:#fff8ee}
+.qbox .opt.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.progbar{height:8px;background:var(--line);border-radius:20px;overflow:hidden;margin:4px 0 20px}
+.progbar>i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.mres{text-align:center}
+.mres .type{font-size:2.2rem;font-weight:800;color:var(--accent-dark);letter-spacing:1px}
+.mres .tname{font-size:1.25rem;font-weight:800;margin:4px 0 2px}
+.mres .temo{font-size:3rem;margin:6px 0}
+.mres .tdesc{font-size:.95rem;color:var(--ink);margin:10px 0;line-height:1.6}
+.mres .match{background:#fff;border:1.5px dashed var(--accent);border-radius:10px;padding:12px;font-size:.9rem;margin-top:12px}
+.mres .match b{color:var(--accent-dark)}
+.axis{display:flex;flex-direction:column;gap:7px;margin:14px 0}
+.axis .row{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--sub)}
+.axis .bar{flex:1;height:7px;background:var(--line);border-radius:20px;position:relative}
+.axis .bar>i{position:absolute;top:0;height:100%;background:var(--accent);border-radius:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
+
+<h1>우리집 반려동물 성격 테스트 🐶🐱</h1>
+<p class="desc">우리 아이를 떠올리며 12개 질문에 답해보세요. 16가지 성격유형 중 어디에 속하는지, 찰떡궁합 유형까지 알려드려요.</p>
+
+<div class="card">
+  <div class="progbar"><i id="prog"></i></div>
+  <div class="qwrap" id="qwrap"></div>
+  <div class="result" id="result">
+    <div class="mres">
+      <div class="temo" id="temo"></div>
+      <div class="type" id="type"></div>
+      <div class="tname" id="tname"></div>
+      <div class="tdesc" id="tdesc"></div>
+      <div class="axis" id="axis"></div>
+      <div class="match" id="match"></div>
+    </div>
+    <a class="buybox" href="https://link.coupang.com/a/fiyl65SQxw" target="_blank" rel="nofollow sponsored noopener">
+      <span class="bb-ico">🎁</span>
+      <span class="bb-txt"><b>우리 아이 성격에 딱! 인기 반려동물 간식·영양제</b><span class="bb-sub">쿠팡 로켓배송 베스트</span></span>
+      <span class="bb-arrow">›</span>
+    </a>
+    <div class="bb-disc">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
+    <button class="sharebtn" onclick="shareResult()">📤 우리 아이 유형 공유하기</button>
+    <button class="sharebtn" style="margin-top:9px" onclick="restart()">🔄 다시 테스트하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/age/"><span class="e">🐶</span> 사람 나이로 계산</a>
+      <a href="/walk/"><span class="e">🐾</span> 산책 칼로리 계산</a>
+      <a href="/dday/"><span class="e">🎂</span> 함께한 날 D-day</a>
+      <a href="/cost/"><span class="e">💰</span> 월 양육비 계산</a>
+    </div></div>
+  </div>
+</div>
+
+<div class="card faq">
+  <h3>이 성격 테스트는 어떻게 만들어졌나요?</h3>
+  <p>사람의 MBTI 4가지 축(외향/내향, 호기심/신중, 다정/도도, 계획/즉흥)을 반려동물의 행동 패턴에 맞춰 재구성한 재미용 심리 테스트입니다. 학술적 진단이 아니라 우리 아이를 더 이해하는 즐거운 참고 자료로 봐주세요.</p>
+  <h3>강아지와 고양이 모두 되나요?</h3>
+  <p>네, 강아지·고양이 구분 없이 모두 사용할 수 있습니다. 질문은 두 동물 모두에게 자연스럽게 답할 수 있도록 만들었습니다.</p>
+</div>
+
+<footer>© 멍냥계산기 · 재미용 심리 테스트입니다. · <a href="/privacy/">개인정보처리방침</a></footer>
+</div>
+
+<script>
+// 각 질문: 축(axis), 두 선택지가 각각 어느 극(pole)에 +1
+const Q=[
+ {ax:'EI',q:'낯선 손님이 집에 왔을 때 우리 아이는?',a:['쪼르르 달려가 반갑게 맞이한다','일단 멀리서 지켜보거나 숨는다'],p:['E','I']},
+ {ax:'EI',q:'산책이나 외출을 하면?',a:['신나서 여기저기 활발하게 돌아다닌다','내 옆에 붙어 조용히 다닌다'],p:['E','I']},
+ {ax:'EI',q:'다른 동물을 만나면?',a:['먼저 다가가 인사하고 어울린다','거리를 두고 신중하게 살핀다'],p:['E','I']},
+ {ax:'NS',q:'새로운 장난감이나 물건을 보면?',a:['호기심 폭발! 바로 파고들어 탐색한다','익숙한 것부터, 천천히 관심을 준다'],p:['N','S']},
+ {ax:'NS',q:'평소 노는 스타일은?',a:['매번 새로운 놀이를 찾아 즐긴다','좋아하는 놀이 하나를 꾸준히 반복한다'],p:['N','S']},
+ {ax:'NS',q:'집안 구조가 바뀌면?',a:['신기해하며 새 공간을 탐험한다','예전 자리를 더 좋아하고 적응에 시간이 걸린다'],p:['N','S']},
+ {ax:'FT',q:'내가 슬프거나 아파 보이면?',a:['곁에 와서 위로하듯 붙어 있는다','제 할 일 하며 크게 신경 쓰지 않는다'],p:['F','T']},
+ {ax:'FT',q:'애정 표현 스타일은?',a:['부비부비·핥기 등 스킨십이 많다','쿨하게 자기만의 방식으로 표현한다'],p:['F','T']},
+ {ax:'FT',q:'혼자 있는 시간에 대해?',a:['외로움을 많이 타고 나를 계속 찾는다','혼자서도 잘 지내는 독립적인 타입'],p:['F','T']},
+ {ax:'JP',q:'밥·산책 시간에 대한 태도는?',a:['시간을 칼같이 알고 규칙적으로 챙긴다','그때그때 기분 따라 자유롭게'],p:['J','P']},
+ {ax:'JP',q:'잠자리나 물건 정리는?',a:['자기 자리·물건이 정해져 있고 지킨다','아무데서나 편하게, 즉흥적으로'],p:['J','P']},
+ {ax:'JP',q:'훈련이나 규칙에 대해?',a:['배운 규칙을 잘 지키는 모범생','내키는 대로 하는 자유로운 영혼'],p:['J','P']}
+];
+
+const TYPES={
+ ENFJ:['🦮','따뜻한 리더견/묘','사교적이고 다정한 우리 집 분위기 메이커. 가족 모두를 챙기고 사랑받는 걸 즐겨요.'],
+ ENFP:['🐕','열정 만수르','호기심과 애교가 폭발하는 에너자이저. 매 순간이 즐겁고 사람을 정말 좋아해요.'],
+ ENTJ:['🐕‍🦺','우리집 대장','당당하고 똑똑한 리더 타입. 집안의 규칙을 스스로 정하는 카리스마쟁이.'],
+ ENTP:['🦊','장난꾸러기 천재','머리 좋고 호기심 많은 사고뭉치. 새로운 장난에 늘 진심이에요.'],
+ ESFJ:['🐩','인싸 사랑둥이','다정하고 사교적인 관심종결자. 가족과 붙어 있을 때 가장 행복해요.'],
+ ESFP:['🐶','흥부자 관종','텐션 최고! 관심받는 걸 사랑하는 우리 집 분위기 폭격기.'],
+ ESTJ:['🐕','철저한 규칙쟁이','활발하면서도 규칙을 잘 지키는 성실파. 시간 약속을 칼같이 지켜요.'],
+ ESTP:['🐈','겁없는 모험가','활동적이고 대담한 도전왕. 집안 곳곳이 놀이터예요.'],
+ INFJ:['🐈‍⬛','신비로운 현자','조용하지만 속이 깊은 아이. 가족의 감정을 은근히 잘 살펴요.'],
+ INFP:['🐱','순둥순둥 몽상가','여리고 다정한 감성파. 조용히 곁을 지키는 걸 좋아해요.'],
+ INTJ:['🐈','도도한 전략가','독립적이고 똑똑한 마이웨이. 자기만의 세계가 확실해요.'],
+ INTP:['🦉','호기심 관찰러','조용히 세상을 관찰하는 탐구형. 혼자 노는 데 천재예요.'],
+ ISFJ:['🐕‍🦺','헌신적인 집사','조용하고 다정하게 가족을 지키는 수호천사 타입.'],
+ ISFP:['🐰','평화주의 애교쟁이','부드럽고 온순한 힐링 요정. 편안한 분위기를 좋아해요.'],
+ ISTJ:['🐈','원칙주의 신사','차분하고 규칙적인 모범생. 익숙한 루틴에서 안정감을 느껴요.'],
+ ISTP:['🐆','쿨한 독립러','조용하고 자유로운 개인주의자. 혼자서도 완벽하게 잘 지내요.']
+};
+// 간단 궁합
+const MATCH={ENFJ:'ISFP',ENFP:'INFJ',ENTJ:'INTP',ENTP:'ISFJ',ESFJ:'ISFP',ESFP:'ISTJ',ESTJ:'ISFP',ESTP:'ISFJ',INFJ:'ENFP',INFP:'ENFJ',INTJ:'ENTP',INTP:'ENTJ',ISFJ:'ESTP',ISFP:'ENFJ',ISTJ:'ESFP',ISTP:'ESFJ'};
+
+let cur=0, ans=[];
+function render(){
+  const w=document.getElementById('qwrap');
+  if(cur>=Q.length){show();return;}
+  const item=Q[cur];
+  document.getElementById('prog').style.width=(cur/Q.length*100)+'%';
+  w.innerHTML='<div class="qbox"><div class="qn">Q'+(cur+1)+'. '+item.q+'</div>'+
+    item.a.map((t,i)=>'<button class="opt" onclick="pick('+i+')">'+t+'</button>').join('')+'</div>';
+}
+function pick(i){
+  ans[cur]={ax:Q[cur].ax,pole:Q[cur].p[i]};
+  cur++;
+  render();
+}
+function show(){
+  document.getElementById('prog').style.width='100%';
+  document.getElementById('qwrap').style.display='none';
+  const score={E:0,I:0,N:0,S:0,F:0,T:0,J:0,P:0};
+  ans.forEach(a=>score[a.pole]++);
+  const code=(score.E>=score.I?'E':'I')+(score.N>=score.S?'N':'S')+(score.F>=score.T?'F':'T')+(score.J>=score.P?'J':'P');
+  const t=TYPES[code];
+  document.getElementById('temo').textContent=t[0];
+  document.getElementById('type').textContent=code;
+  document.getElementById('tname').textContent=t[1];
+  document.getElementById('tdesc').textContent=t[2];
+  // 축 막대
+  const axes=[['E','I','외향','내향',score.E,score.I],['N','S','호기심','신중',score.N,score.S],['F','T','다정','도도',score.F,score.T],['J','P','계획','자유',score.J,score.P]];
+  document.getElementById('axis').innerHTML=axes.map(a=>{
+    const tot=a[4]+a[5]||1;const pctL=Math.round(a[4]/tot*100);
+    return '<div class="row"><span>'+a[2]+'</span><div class="bar"><i style="left:0;width:'+pctL+'%"></i></div><span>'+a[3]+'</span></div>';
+  }).join('');
+  const m=MATCH[code];
+  document.getElementById('match').innerHTML='우리 아이와 찰떡궁합은 <b>'+m+' ('+TYPES[m][1]+')</b> 유형이에요! '+TYPES[m][0];
+  window.__share='우리 아이는 '+t[0]+' '+code+' ('+t[1]+') 유형! '+t[2]+' 🐾 멍냥계산기 성격테스트';
+  document.getElementById('result').classList.add('show');
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function restart(){
+  cur=0;ans=[];
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('qwrap').style.display='block';
+  render();
+}
+render();
+</script>
+</body>
+</html>

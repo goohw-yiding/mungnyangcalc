@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강아지·고양이 월 양육비 계산기 - 사료비·용품비 예상 | 멍냥계산기</title>
+<meta name="description" content="체중과 사료 등급만 입력하면 우리 강아지·고양이의 월 사료비, 간식·영양제, 용품비, 병원비까지 한 달 양육비를 자동으로 계산합니다. 무료·회원가입 없음.">
+<link rel="canonical" href="https://mungnyangcalc.com/cost/">
+<meta property="og:title" content="강아지·고양이 월 양육비 계산기">
+<meta property="og:description" content="우리 아이 한 달에 얼마 들까? 사료비부터 병원비까지 자동 계산 🐾">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/style.css">
+<script src="/fun.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 월 양육비 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
+</script>
+<style>
+.costrow{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.costrow:last-of-type{border-bottom:none}
+.costrow .v{font-weight:700}
+.costtot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:12px;border-top:2px solid var(--accent)}
+.costtot .v{font-size:1.5rem;font-weight:800;color:var(--accent-dark)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
+
+<h1>월 양육비 계산기 💰</h1>
+<p class="desc">우리 아이 한 달에 얼마나 들까요? 체중과 사료 등급만 고르면 사료비·간식·용품·병원비까지 한 달 예상 양육비를 계산해 드려요.</p>
+
+<div class="card">
+  <label>반려동물 종류</label>
+  <div class="seg" id="species">
+    <button class="on" data-v="dog">🐶 강아지</button>
+    <button data-v="cat">🐱 고양이</button>
+  </div>
+
+  <label>체중 (kg)</label>
+  <input type="number" id="w" min="0.5" max="80" step="0.1" placeholder="예: 5 (5kg)">
+
+  <label>사료 등급</label>
+  <div class="seg" id="grade">
+    <button class="on" data-v="1">일반</button>
+    <button data-v="2">프리미엄</button>
+    <button data-v="3">자연식·화식</button>
+  </div>
+
+  <label>간식·영양제</label>
+  <div class="seg" id="treat">
+    <button data-v="1">거의 안 줌</button>
+    <button class="on" data-v="2">보통</button>
+    <button data-v="3">많이</button>
+  </div>
+
+  <label>용품(패드·모래·미용 등)</label>
+  <div class="seg" id="supply">
+    <button class="on" data-v="1">기본</button>
+    <button data-v="2">넉넉히</button>
+  </div>
+
+  <label>병원·건강관리</label>
+  <div class="seg" id="vet">
+    <button class="on" data-v="1">기본 예방접종·검진</button>
+    <button data-v="2">노령·지병 관리</button>
+  </div>
+
+  <button class="go" onclick="calc()">한 달 양육비 계산하기</button>
+
+  <div class="result" id="result">
+    <div class="costrow"><span>🍚 사료비</span><span class="v" id="c-food"></span></div>
+    <div class="costrow"><span>🦴 간식·영양제</span><span class="v" id="c-treat"></span></div>
+    <div class="costrow"><span>🧻 용품</span><span class="v" id="c-supply"></span></div>
+    <div class="costrow"><span>🏥 병원·건강관리(월 환산)</span><span class="v" id="c-vet"></span></div>
+    <div class="costtot"><span>한 달 총 예상</span><span class="v" id="c-total"></span></div>
+    <div class="note" id="c-year"></div>
+    <a class="buybox" id="foodbuy" href="https://link.coupang.com/a/fixPlKZa9Y" target="_blank" rel="nofollow sponsored noopener">
+      <span class="bb-ico">🍚</span>
+      <span class="bb-txt"><b id="foodbuy-t">가성비 좋은 인기 강아지 사료</b><span class="bb-sub">쿠팡 로켓배송 베스트셀러</span></span>
+      <span class="bb-arrow">›</span>
+    </a>
+    <a class="buysub" href="https://link.coupang.com/a/fiyb17qpqu" target="_blank" rel="nofollow sponsored noopener">⚖️ 정확한 급여량 관리엔 반려동물 체중계 →</a>
+    <div class="bb-disc">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
+    <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/food/"><span class="e">🍚</span> 하루 사료량 계산</a>
+      <a href="/mbti/"><span class="e">🧠</span> 성격 유형 테스트</a>
+      <a href="/walk/"><span class="e">🐾</span> 산책 칼로리 계산</a>
+      <a class="buy" href="/blog/dog-food-amount/"><span class="e">📖</span> 사료량 조절 가이드</a>
+    </div></div>
+  </div>
+</div>
+
+<div class="card faq">
+  <h3>양육비는 어떻게 계산되나요?</h3>
+  <p>체중을 바탕으로 수의학 열량 공식(RER/MER)으로 하루 사료량을 구한 뒤, 선택한 사료 등급의 kg당 평균 시세를 곱해 월 사료비를 산출합니다. 여기에 간식·영양제, 용품, 병원비(연간 비용의 월 환산)를 더한 예상치입니다.</p>
+  <h3>실제 비용과 다를 수 있나요?</h3>
+  <p>네. 브랜드, 지역, 아이의 건강 상태에 따라 차이가 큽니다. 특히 병원비는 질병·수술이 생기면 크게 늘 수 있으니, 이 계산은 평상시 기준의 참고용으로 봐주세요. 펫보험 가입을 함께 고려하면 큰 지출을 분산할 수 있습니다.</p>
+</div>
+
+<footer>© 멍냥계산기 · 계산 결과는 참고용입니다. · <a href="/privacy/">개인정보처리방침</a></footer>
+</div>
+
+<script>
+let species='dog',grade=1,treat=2,supply=1,vet=1;
+function seg(id,cb){document.querySelectorAll('#'+id+' button').forEach(b=>{b.onclick=()=>{document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cb(b.dataset.v);};});}
+seg('species',v=>{species=v;document.querySelectorAll('#grade button')[2].textContent=v==='cat'?'자연식':'자연식·화식';});
+seg('grade',v=>grade=+v);
+seg('treat',v=>treat=+v);
+seg('supply',v=>supply=+v);
+seg('vet',v=>vet=+v);
+function won(n){return Math.round(n/100)*100;}
+function fmt(n){return n.toLocaleString('ko-KR')+'원';}
+function calc(){
+  const w=parseFloat(document.getElementById('w').value);
+  if(isNaN(w)||w<=0||w>80){alert('체중을 0.5~80kg 사이로 입력해주세요.');return;}
+  // 하루 사료량(g): RER=70*w^0.75, MER=1.4*RER(중성화 성견/성묘 평균), 사료 3600kcal/kg
+  const rer=70*Math.pow(w,0.75);
+  const mer=rer*(species==='cat'?1.2:1.4);
+  const dailyG=mer/3.6; // g/day
+  const monthlyKg=dailyG*30/1000;
+  const pricePerKg={1:9000,2:16000,3:32000}[grade];
+  const food=won(monthlyKg*pricePerKg);
+  const treatC={1:8000,2:22000,3:45000}[treat]+(species==='cat'?0:2000);
+  const supplyBase=species==='cat'?18000:14000; // 고양이 모래 반영
+  const supplyC=won(supplyBase*(supply===2?1.8:1));
+  // 병원: 기본 연 22만(접종+검진), 노령/지병 연 60만
+  const vetYear={1:220000,2:600000}[vet];
+  const vetC=won(vetYear/12);
+  const total=food+treatC+supplyC+vetC;
+  document.getElementById('c-food').textContent=fmt(food);
+  document.getElementById('c-treat').textContent=fmt(treatC);
+  document.getElementById('c-supply').textContent=fmt(supplyC);
+  document.getElementById('c-vet').textContent=fmt(vetC);
+  document.getElementById('c-total').textContent=fmt(total);
+  document.getElementById('c-year').textContent='연간 약 '+fmt(total*12)+' · 하루 사료량 약 '+Math.round(dailyG)+'g 기준';
+  document.getElementById('foodbuy').href=species==='cat'?'https://link.coupang.com/a/fixZynP0sm':'https://link.coupang.com/a/fixPlKZa9Y';
+  document.getElementById('foodbuy-t').textContent=species==='cat'?'가성비 좋은 인기 고양이 사료':'가성비 좋은 인기 강아지 사료';
+  window.__share='우리 아이 한 달 양육비는 약 '+fmt(total)+'! (연 '+fmt(total*12)+') 🐾 멍냥계산기';
+  document.getElementById('result').classList.add('show');
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+}
+</script>
+</body>
+</html>

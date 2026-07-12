@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강아지 산책 칼로리 계산기 - 소모 열량·사료 환산 | 멍냥계산기</title>
+<meta name="description" content="체중과 산책 시간·강도를 입력하면 우리 강아지가 산책으로 태운 칼로리와 사료·간식 환산량을 계산합니다. 다이어트 관리에 딱. 무료·회원가입 없음.">
+<link rel="canonical" href="https://mungnyangcalc.com/walk/">
+<meta property="og:title" content="강아지 산책 칼로리 계산기">
+<meta property="og:description" content="오늘 산책으로 몇 칼로리 태웠을까? 사료 몇 g인지까지 계산 🐾">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/style.css">
+<script src="/fun.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"강아지 산책 칼로리 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
+</script>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
+
+<h1>산책 칼로리 계산기 🐾</h1>
+<p class="desc">오늘 산책으로 우리 아이가 몇 칼로리를 태웠을까요? 체중과 산책 시간·강도를 입력하면 소모 열량과 사료·간식 환산량을 알려드려요. 다이어트 관리에 좋아요.</p>
+
+<div class="card">
+  <label>반려동물 종류</label>
+  <div class="seg" id="species">
+    <button class="on" data-v="dog">🐶 강아지</button>
+    <button data-v="cat">🐱 고양이</button>
+  </div>
+
+  <label>체중 (kg)</label>
+  <input type="number" id="w" min="0.5" max="80" step="0.1" placeholder="예: 5 (5kg)">
+
+  <label>산책·활동 시간 (분)</label>
+  <input type="number" id="min" min="1" max="300" step="1" placeholder="예: 30 (30분)">
+
+  <label>활동 강도</label>
+  <div class="seg" id="intensity">
+    <button data-v="1">느긋한 걷기</button>
+    <button class="on" data-v="2">보통 산책</button>
+    <button data-v="3">활발히 뛰놀기</button>
+  </div>
+
+  <button class="go" onclick="calc()">소모 칼로리 계산하기</button>
+
+  <div class="result" id="result">
+    <div>이번 활동으로 태운 열량</div>
+    <div class="big" id="kcal"></div>
+    <div id="detail" class="note"></div>
+    <a class="buybox" href="https://link.coupang.com/a/fiyb17qpqu" target="_blank" rel="nofollow sponsored noopener">
+      <span class="bb-ico">⚖️</span>
+      <span class="bb-txt"><b>다이어트 관리엔 반려동물 체중계로 매주 체크</b><span class="bb-sub">쿠팡 로켓배송 인기 상품</span></span>
+      <span class="bb-arrow">›</span>
+    </a>
+    <div class="bb-disc">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
+    <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
+    <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
+      <a href="/food/"><span class="e">🍚</span> 하루 사료량 계산</a>
+      <a href="/cost/"><span class="e">💰</span> 월 양육비 계산</a>
+      <a href="/mbti/"><span class="e">🧠</span> 성격 유형 테스트</a>
+      <a class="buy" href="/blog/dog-weight/"><span class="e">⚖️</span> 우리 아이 비만일까?</a>
+    </div></div>
+  </div>
+</div>
+
+<div class="card faq">
+  <h3>산책 칼로리는 어떻게 계산하나요?</h3>
+  <p>체중, 활동 시간, 강도를 바탕으로 반려동물의 활동 대사량을 추정합니다. 강도가 높을수록, 체중이 무거울수록, 시간이 길수록 소모 열량이 커집니다. 결과는 사료(약 3.6kcal/g)로 환산해 "산책으로 사료 몇 g만큼 태웠는지"도 보여드립니다.</p>
+  <h3>다이어트에 어떻게 활용하나요?</h3>
+  <p>비만 관리 중이라면 하루 필요 열량(사료량 계산기 참고)에서 산책 소모량을 함께 고려하세요. 다만 급격한 운동은 관절·심장에 부담을 줄 수 있으니, 짧고 자주 늘려가는 것이 안전합니다.</p>
+</div>
+
+<footer>© 멍냥계산기 · 계산 결과는 참고용입니다. · <a href="/privacy/">개인정보처리방침</a></footer>
+</div>
+
+<script>
+let species='dog',intensity=2;
+function seg(id,cb){document.querySelectorAll('#'+id+' button').forEach(b=>{b.onclick=()=>{document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cb(b.dataset.v);};});}
+seg('species',v=>species=v);
+seg('intensity',v=>intensity=+v);
+function calc(){
+  const w=parseFloat(document.getElementById('w').value);
+  const m=parseFloat(document.getElementById('min').value);
+  if(isNaN(w)||w<=0||w>80){alert('체중을 0.5~80kg 사이로 입력해주세요.');return;}
+  if(isNaN(m)||m<=0||m>300){alert('시간을 1~300분 사이로 입력해주세요.');return;}
+  // kcal/min/kg by intensity (고양이는 체중당 대사 약간 높음)
+  const factor={1:0.05,2:0.09,3:0.14}[intensity]*(species==='cat'?1.1:1);
+  const kcal=Math.round(w*m*factor);
+  const foodG=Math.round(kcal/3.6);
+  const treats=(kcal/6).toFixed(1);
+  document.getElementById('kcal').textContent=kcal+' kcal';
+  const level=intensity===3?'활발한 활동':intensity===2?'적당한 산책':'가벼운 걷기';
+  document.getElementById('detail').textContent=level+' '+m+'분 기준 · 사료 약 '+foodG+'g · 간식 약 '+treats+'개 분량을 태웠어요.';
+  window.__share='우리 아이 오늘 산책으로 '+kcal+'kcal 태웠어요! (사료 약 '+foodG+'g) 🐾 멍냥계산기';
+  document.getElementById('result').classList.add('show');
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+}
+</script>
+</body>
+</html>
