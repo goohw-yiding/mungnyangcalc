@@ -6,80 +6,199 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7VJ3HH1L3P');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>멍냥계산기 - 강아지·고양이 무료 계산기 모음</title>
-<meta name="description" content="강아지 나이 계산기, 고양이 나이 계산기, 사료 급여량 계산기 등 반려동물 보호자를 위한 무료 계산 도구 모음. 회원가입 없이 바로 사용하세요.">
+<title>멍냥계산기 - 우리 강아지·고양이를 알아가는 공간</title>
+<meta name="description" content="이름과 생일만 입력하면 우리 강아지·고양이의 사람 나이, 성격유형, 함께한 날, 다음 생일까지 한 장에 담아드려요. 사료량·산책·양육비 계산까지 무료로.">
 <meta name="naver-site-verification" content="bc4cbc7d7aad87948ed295b93bc2bc2590c240fb" />
 <link rel="canonical" href="https://mungnyangcalc.com/">
+<meta property="og:title" content="멍냥계산기 - 우리 아이를 알아가는 공간">
+<meta property="og:description" content="우리 아이는 어떤 아이일까요? 사람 나이·성격·함께한 날을 한 장에 🐾">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
+<style>
+.sec-title{font-size:1.05rem;font-weight:800;margin:26px 0 12px}
+.hero{text-align:center;padding:20px 10px 8px}
+.hero-emoji{font-size:2.6rem;letter-spacing:4px}
+.hero h1{font-size:1.5rem;margin:10px 0 8px}
+.hero-sub{color:var(--sub);font-size:.95rem;margin:0 auto 20px;max-width:420px}
+.hero .go{max-width:320px;margin:0 auto}
+.hero-mini{font-size:.78rem;color:var(--sub);margin-top:14px}
+.greet{font-size:1.45rem;font-weight:800;margin:8px 0 4px}
+.greet .gw{display:inline-block;animation:wiggle 3.5s ease-in-out infinite}
+.greet-sub{color:var(--sub);font-size:.92rem;margin-bottom:16px}
+.petcard{background:linear-gradient(135deg,#fff8ee,#fff);border:1.5px solid var(--accent);border-radius:16px;padding:18px;margin-bottom:14px}
+.pc-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.pc-emoji{width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0}
+.pc-id{flex:1;min-width:0}
+.pc-name{font-weight:800;font-size:1.05rem}
+.pc-line{font-size:.82rem;color:var(--sub)}
+.pc-edit{background:#fff;border:1px solid var(--line);color:var(--accent-dark);border-radius:20px;padding:6px 12px;font-size:.8rem;font-weight:700;cursor:pointer}
+.pc-edit:hover{border-color:var(--accent)}
+.pmetrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pmetric{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+.pm-label{font-size:.78rem;color:var(--sub)}
+.pm-val{font-size:1.25rem;font-weight:800;color:var(--ink);margin-top:2px}
+.pm-val.pm-warn{color:var(--accent-dark)}
+.pm-link{color:var(--accent-dark);text-decoration:none}
+.pm-link.pm-q{font-size:.95rem;font-weight:700}
+.share-hero{margin-bottom:6px}
+.actions{display:flex;flex-direction:column;gap:9px}
+.actionrow{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;text-decoration:none;color:var(--ink)}
+.actionrow:hover{border-color:var(--accent);background:#fff8ee}
+.ar-ico{font-size:1.5rem;flex-shrink:0}
+.ar-txt{display:flex;flex-direction:column;flex:1;line-height:1.35;min-width:0}
+.ar-txt b{font-size:.98rem}
+.ar-txt span{font-size:.82rem;color:var(--sub)}
+.ar-arw{font-size:1.5rem;color:var(--accent-dark);font-weight:800}
+.toolgrid h3{font-size:1.05rem;margin:8px 0 4px}
+.regform label{margin-top:12px}
+</style>
+<script src="/profile.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"멍냥계산기","description":"반려동물 보호자를 위한 무료 계산기 모음","inLanguage":"ko"}
+{"@context":"https://schema.org","@type":"WebSite","name":"멍냥계산기","description":"우리 강아지·고양이를 알아가는 공간","inLanguage":"ko"}
 </script>
 </head>
 <body>
 <div class="wrap">
 <header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
 
-<h1>반려동물 계산기 모음</h1>
-<p class="desc">강아지·고양이 보호자에게 필요한 계산을 무료로, 회원가입 없이. 즐겨찾기 해두고 필요할 때마다 쓰세요.</p>
+<div id="hero"></div>
 
+<h2 class="sec-title">모든 계산기</h2>
 <div class="toolgrid">
-  <a href="/age/">
-    <div class="emoji">🐶</div>
-    <h2>강아지·고양이 나이 계산기</h2>
-    <p>우리 아이가 사람 나이로 몇 살인지 견종 크기까지 반영해 계산합니다.</p>
-  </a>
-  <a href="/food/">
-    <div class="emoji">🍚</div>
-    <h2>사료 급여량 계산기</h2>
-    <p>체중과 활동량에 맞는 하루 사료량(g)을 수의학 공식(RER/MER)으로 계산합니다.</p>
-  </a>
-  <a href="/vaccine/">
-    <div class="emoji">💉</div>
-    <h2>예방접종 일정 계산기</h2>
-    <p>생일만 입력하면 종합백신부터 광견병까지 접종 날짜를 자동으로 계산합니다.</p>
-  </a>
-  <a href="/mbti/">
-    <div class="emoji">🧠</div>
-    <h2>반려동물 성격 테스트(MBTI)</h2>
-    <p>12개 질문으로 우리 아이의 성격유형과 찰떡궁합을 알아보는 재미 테스트.</p>
-  </a>
-  <a href="/cost/">
-    <div class="emoji">💰</div>
-    <h2>월 양육비 계산기</h2>
-    <p>체중과 사료 등급만 고르면 사료비·용품·병원비까지 한 달 양육비를 계산합니다.</p>
-  </a>
-  <a href="/walk/">
-    <div class="emoji">🐾</div>
-    <h2>산책 칼로리 계산기</h2>
-    <p>산책 시간·강도로 소모 열량과 사료 환산량을 계산해 다이어트 관리에 좋아요.</p>
-  </a>
-  <a href="/dday/">
-    <div class="emoji">🎂</div>
-    <h2>생일·기념일 D-day</h2>
-    <p>생일·입양일만 입력하면 함께한 날과 다가오는 기념일 D-day를 알려드려요.</p>
-  </a>
-  <a href="/pet-travel/">
-    <div class="emoji">🗺️</div>
-    <h2>반려동물 동반 여행지 찾기</h2>
-    <p>전국 반려동물 동반 가능한 관광지·음식점·숙소를 지역별·내 주변으로 검색합니다.</p>
-  </a>
-  <a href="/blog/">
-    <div class="emoji">📖</div>
-    <h2>반려동물 가이드</h2>
-    <p>접종 비용, 사료량 조절법 등 보호자에게 필요한 실용 정보 모음.</p>
-  </a>
+  <a href="/age/"><div class="emoji">🐶</div><h3>나이 계산기</h3><p>우리 아이가 사람 나이로 몇 살인지 견종 크기까지 반영해 계산합니다.</p></a>
+  <a href="/mbti/"><div class="emoji">🧠</div><h3>성격 테스트(MBTI)</h3><p>12개 질문으로 우리 아이의 성격유형과 찰떡궁합을 알아보는 재미 테스트.</p></a>
+  <a href="/food/"><div class="emoji">🍚</div><h3>사료 급여량</h3><p>체중과 활동량에 맞는 하루 사료량(g)을 수의학 공식으로 계산합니다.</p></a>
+  <a href="/cost/"><div class="emoji">💰</div><h3>월 양육비</h3><p>사료비·간식·용품·병원비까지 한 달 예상 양육비를 계산합니다.</p></a>
+  <a href="/walk/"><div class="emoji">🐾</div><h3>산책 칼로리</h3><p>산책 시간·강도로 소모 열량과 사료 환산량을 계산합니다.</p></a>
+  <a href="/dday/"><div class="emoji">🎂</div><h3>생일·기념일 D-day</h3><p>함께한 날과 다가오는 생일·기념일 D-day를 알려드려요.</p></a>
+  <a href="/vaccine/"><div class="emoji">💉</div><h3>예방접종 일정</h3><p>생일만 입력하면 종합백신부터 광견병까지 접종 날짜를 계산합니다.</p></a>
+  <a href="/pet-travel/"><div class="emoji">🗺️</div><h3>동반 여행지 찾기</h3><p>전국 반려동물 동반 관광지·음식점·숙소를 지역별로 검색합니다.</p></a>
+  <a href="/blog/"><div class="emoji">📖</div><h3>반려동물 가이드</h3><p>접종 비용, 사료량 조절법 등 보호자에게 필요한 실용 정보 모음.</p></a>
 </div>
 
 <div class="card faq">
   <h3>이 사이트는 뭔가요?</h3>
-  <p>반려동물을 키우면서 자주 필요한 계산들을 모아둔 무료 도구 사이트입니다. 모든 계산기는 광고 수익으로 운영되며 회원가입이나 결제가 없습니다.</p>
-  <h3>계산 결과는 믿을 수 있나요?</h3>
-  <p>수의학계에서 통용되는 공식(개 나이 환산 연구, RER/MER 열량 공식)을 기반으로 하되, 개체차가 있으므로 참고용으로 사용하시고 정확한 건강 판단은 수의사와 상담하세요.</p>
+  <p>우리 아이 정보를 한 번만 등록하면, 사람 나이·성격·함께한 날·다음 생일이 한 장에 모이고 사료량·산책·양육비 계산까지 자동으로 이어지는 반려동물 공간입니다. 회원가입도, 결제도 없어요.</p>
+  <h3>입력한 정보는 어디에 저장되나요?</h3>
+  <p>서버가 아니라 이 브라우저(내 기기)에만 저장됩니다. 다른 사람은 볼 수 없고, 브라우저 데이터를 지우면 함께 삭제됩니다.</p>
 </div>
 
 <footer>© 멍냥계산기 · 본 사이트의 계산 결과는 참고용이며 수의학적 진단을 대신하지 않습니다. · <a href="/privacy/">개인정보처리방침</a></footer>
 </div>
+
+<script>
+function esc(s){return (s||'').replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});}
+function renderHero(){
+  var p=window.MNY.get();
+  var el=document.getElementById('hero');
+  if(!p||!p.name||!p.birth){ el.innerHTML=emptyHTML(); return; }
+  el.innerHTML=dashHTML(p);
+}
+function emptyHTML(){
+  return '<div class="hero">'+
+    '<div class="hero-emoji">🐶🐱</div>'+
+    '<h1>우리 아이는 어떤 아이일까요?</h1>'+
+    '<p class="hero-sub">이름과 생일만 넣으면 사람 나이, 성격, 함께한 날까지 한 장에 담아드려요. 30초면 끝나요.</p>'+
+    '<button class="go" onclick="openForm()">우리 아이 등록하기</button>'+
+    '<div class="hero-mini">이미 등록했는데 안 보이나요? 같은 기기·브라우저에서 열어주세요.</div>'+
+  '</div>';
+}
+function dashHTML(p){
+  var h=window.MNY.humanAge(p);
+  var dt=window.MNY.daysTogether(p);
+  var nb=window.MNY.nextBirthdayD(p);
+  var ageY=Math.floor(window.MNY.ageYears(p.birth));
+  var sub=(dt!=null?('함께한 지 '+dt.toLocaleString('ko-KR')+'일째예요. '):'')+'오늘도 우리 '+esc(p.name)+'를 알아볼까요?';
+  var mbti=p.mbti?('<a href="/mbti/" class="pm-link">'+p.mbti+'</a>'):'<a href="/mbti/" class="pm-link pm-q">알아보기 ›</a>';
+  var line=window.MNY.sizeLabel(p)+(isNaN(ageY)?'':' · '+ageY+'살');
+  return ''+
+  '<div class="greet">'+esc(p.name)+', 오늘도 안녕! <span class="gw">🐾</span></div>'+
+  '<div class="greet-sub">'+sub+'</div>'+
+  '<div class="petcard">'+
+    '<div class="pc-head">'+
+      '<div class="pc-emoji">'+window.MNY.emoji(p)+'</div>'+
+      '<div class="pc-id"><div class="pc-name">'+esc(p.name)+'</div><div class="pc-line">'+line+'</div></div>'+
+      '<button class="pc-edit" onclick="openForm()"><span>✎</span> 수정</button>'+
+    '</div>'+
+    '<div class="pmetrics">'+
+      pm('사람 나이', h!=null?h+'세':'-')+
+      pm('성격유형', mbti, true)+
+      pm('함께한 날', dt!=null?dt.toLocaleString('ko-KR')+'일':'-')+
+      pm('다음 생일', nb!=null?(nb===0?'오늘!':'D-'+nb):'-', false, nb!=null&&nb<=30)+
+    '</div>'+
+  '</div>'+
+  '<button class="sharebtn share-hero" onclick="shareProfile()">📤 '+esc(p.name)+' 프로필 카드 공유하기</button>'+
+  '<h2 class="sec-title">'+esc(p.name)+'에 대해 더 알아보기</h2>'+
+  '<div class="actions">'+
+    act('/food/','🍚','하루 사료량','체중으로 자동 계산돼요')+
+    act('/walk/','🐾','산책 칼로리','오늘 산책을 기록해보세요')+
+    act('/vaccine/','💉','예방접종 일정','다음 접종일을 확인하세요')+
+    act('/cost/','💰','월 양육비','한 달 예상 비용을 계산해요')+
+    act('/age/','📅','나이 자세히 보기',(window.MNY.lifeStage(h)||'생애 단계'))+
+    act('/dday/','🎂','기념일 D-day','다가오는 기념일을 챙겨요')+
+  '</div>';
+}
+function pm(label,val,raw,warn){
+  return '<div class="pmetric"><div class="pm-label">'+label+'</div><div class="pm-val'+(warn?' pm-warn':'')+'">'+(raw?val:esc(String(val)))+'</div></div>';
+}
+function act(href,ico,title,desc){
+  return '<a class="actionrow" href="'+href+'"><span class="ar-ico">'+ico+'</span><span class="ar-txt"><b>'+title+'</b><span>'+desc+'</span></span><span class="ar-arw">›</span></a>';
+}
+function shareProfile(){
+  var p=window.MNY.get();var h=window.MNY.humanAge(p);var dt=window.MNY.daysTogether(p);
+  window.__share='우리 '+p.name+' | 사람 나이 '+(h!=null?h+'세':'?')+(p.mbti?' · '+p.mbti:'')+(dt!=null?' · 함께한 지 '+dt+'일':'')+' 🐾 멍냥계산기';
+  if(window.shareResult)window.shareResult();
+}
+
+function openForm(){
+  var p=window.MNY.get()||{};
+  var el=document.getElementById('hero');
+  el.innerHTML=''+
+  '<div class="card regform">'+
+    '<h2 class="sec-title" style="margin-top:0">우리 아이 등록</h2>'+
+    '<label>이름</label><input type="text" id="f-name" maxlength="12" placeholder="예: 콩이" value="'+esc(p.name||'')+'">'+
+    '<label>종류</label><div class="seg" id="f-species">'+
+      '<button type="button" class="'+((p.species!=='cat')?'on':'')+'" data-v="dog">🐶 강아지</button>'+
+      '<button type="button" class="'+((p.species==='cat')?'on':'')+'" data-v="cat">🐱 고양이</button>'+
+    '</div>'+
+    '<div id="f-sizeRow"><label>견종 크기</label><select id="f-size">'+
+      '<option value="small">소형견 (10kg 미만 · 말티즈, 푸들 등)</option>'+
+      '<option value="medium">중형견 (10~25kg · 코카, 보더콜리 등)</option>'+
+      '<option value="large">대형견 (25kg 이상 · 리트리버 등)</option>'+
+    '</select></div>'+
+    '<label>생일</label><input type="date" id="f-birth" value="'+esc(p.birth||'')+'">'+
+    '<label>입양일 (선택 · 없으면 생일 기준)</label><input type="date" id="f-adopt" value="'+esc(p.adopt||'')+'">'+
+    '<label>체중 (kg · 선택)</label><input type="number" id="f-weight" min="0.5" max="80" step="0.1" placeholder="예: 5" value="'+(p.weight||'')+'">'+
+    '<button class="go" onclick="saveForm()">저장하고 프로필 보기</button>'+
+    (p.name?'<button class="sharebtn" style="margin-top:10px" onclick="renderHero()">취소</button>':'')+
+  '</div>';
+  var sp=p.species||'dog';
+  function syncSize(){document.getElementById('f-sizeRow').style.display=sp==='dog'?'block':'none';}
+  document.querySelectorAll('#f-species button').forEach(function(b){
+    b.onclick=function(){document.querySelectorAll('#f-species button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');sp=b.dataset.v;syncSize();};
+  });
+  if(p.size)document.getElementById('f-size').value=p.size;
+  syncSize();
+}
+function saveForm(){
+  var name=(document.getElementById('f-name').value||'').trim();
+  var birth=document.getElementById('f-birth').value;
+  if(!name){alert('이름을 입력해주세요.');return;}
+  if(!birth){alert('생일을 입력해주세요.');return;}
+  var sp=document.querySelector('#f-species button.on').dataset.v;
+  var wv=parseFloat(document.getElementById('f-weight').value);
+  window.MNY.save({
+    name:name, species:sp, size:document.getElementById('f-size').value,
+    birth:birth, adopt:document.getElementById('f-adopt').value,
+    weight:isNaN(wv)?'':wv
+  });
+  if(typeof gtag==='function')gtag('event','profile_save',{species:sp});
+  renderHero();
+  if(window.mnyCelebrate)mnyCelebrate(document.getElementById('hero'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+renderHero();
+</script>
 </body>
 </html>

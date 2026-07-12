@@ -13,6 +13,7 @@
 <meta property="og:description" content="우리 아이는 어떤 성격유형일까? 12문항으로 알아보는 반려동물 MBTI 🐾">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
+<script src="/profile.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 성격 테스트(MBTI)","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -67,6 +68,7 @@
       <span class="bb-arrow">›</span>
     </a>
     <div class="bb-disc">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
+    <div id="savedNote" style="display:none;margin-top:12px;padding:10px 12px;background:#fff8ee;border:1px solid var(--accent);border-radius:10px;font-size:.85rem;color:var(--accent-dark);text-align:center"></div>
     <button class="sharebtn" onclick="shareResult()">📤 우리 아이 유형 공유하기</button>
     <button class="sharebtn" onclick="shareCard()">🖼️ 결과 이미지 저장</button>
     <button class="sharebtn" style="margin-top:9px" onclick="restart()">🔄 다시 테스트하기</button>
@@ -161,6 +163,11 @@ function show(){
   const m=MATCH[code];
   document.getElementById('match').innerHTML='우리 아이와 찰떡궁합은 <b>'+m+' ('+TYPES[m][1]+')</b> 유형이에요! '+TYPES[m][0];
   window.__share='우리 아이는 '+t[0]+' '+code+' ('+t[1]+') 유형! '+t[2]+' 🐾 멍냥계산기 성격테스트';
+  if(window.MNY){window.MNY.save({mbti:code});
+    var pr=window.MNY.get();
+    if(pr&&pr.name){var box=document.getElementById('savedNote');if(box){box.style.display='block';box.innerHTML='✓ '+pr.name+' 프로필에 저장했어요. <a href="/">홈에서 확인 →</a>';}}
+  }
+  if(typeof gtag==='function')gtag('event','mbti_result',{type:code});
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
   document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
