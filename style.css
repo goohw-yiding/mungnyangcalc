@@ -112,3 +112,4 @@ article .note{font-size:.83rem;color:var(--sub);margin-top:-6px}
 .authorbox .ab-t{font-size:.9rem;font-weight:800;margin:0 0 4px}
 .authorbox .ab-d{font-size:.84rem;color:var(--sub);margin:0}
 .authorbox .ab-d a{color:var(--accent-dark)}
+.bdate{display:block;margin-top:8px;font-size:.78rem;color:var(--sub);font-weight:600}

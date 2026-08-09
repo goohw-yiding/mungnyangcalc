@@ -34,6 +34,15 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","url":"https://mungnyangcalc.com/cost/","dateModified":"2026-08-09","inLanguage":"ko","isPartOf":{"@type":"WebSite","name":"멍냥계산기","url":"https://mungnyangcalc.com/"},"publisher":{"@type":"Organization","name":"멍냥계산기","url":"https://mungnyangcalc.com/"},"mainContentOfPage":{"@type":"WebPageElement","cssSelector":".formula"}}
 </script>
+<meta property="og:image" content="https://mungnyangcalc.com/og/cost.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://mungnyangcalc.com/cost/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="멍냥계산기">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mungnyangcalc.com/og/cost.png">
 </head>
 <body>
 <div class="wrap">
@@ -151,11 +160,23 @@
 </div>
 
 <div class="formula">
-<h3>이 계산기가 쓰는 방식</h3>
-<code class="fx">사료비 = (MER ÷ 사료 100g당 열량 × 100) × 30일 × 사료 단가</code>
-<code class="fx">월 비용 = 사료비 + 간식 + 배변·위생용품 + 미용 + 병원비(평균 분할)</code>
-<p>사료비만 앞의 RER·MER 공식으로 실제 체중에 맞춰 계산하고, 나머지 항목은 일반적으로 통용되는 지출 범위를 더합니다. 병원비는 연간 예방접종·건강검진 비용을 12로 나눠 월 단위로 분산했습니다.</p>
-<p class="lim"><b>한계</b> — 진료비는 동물병원마다 자율 책정이라 지역·병원별로 몇 배까지 차이 납니다. 미용비도 견종과 지역 편차가 큽니다. 무엇보다 <b>수술·만성질환·응급 진료는 이 계산에 포함돼 있지 않습니다</b> — 실제로 보호자를 가장 힘들게 하는 건 매달 나가는 돈이 아니라 한 번에 수백만 원이 나가는 순간입니다. 이 숫자는 "최소한 이 정도는 든다"는 하한선으로 읽어 주세요.</p>
+<h3>이 계산기가 쓰는 공식과 단가</h3>
+<code class="fx">하루 사료량(g) = 70 × (체중kg)^0.75 × 1.4(고양이 1.2) ÷ 3.6</code>
+<code class="fx">사료비 = 하루 사료량 × 30일 ÷ 1,000 × 사료 1kg 단가</code>
+<code class="fx">월 비용 = 사료비 + 간식 + 위생·용품 + 병원비(연간 ÷ 12)</code>
+<p>사료비만 체중에 맞춰 실제로 계산하고, 나머지는 아래 <b>가정 단가</b>를 더합니다. 숫자를 숨기지 않는 이유는, 우리 집 사정과 얼마나 다른지 직접 비교하셔야 이 결과가 쓸모 있기 때문입니다.
+<table class="rt"><tr><th>항목</th><th>선택</th><th>가정 금액</th></tr>
+<tr><td rowspan="3">사료 단가</td><td>일반</td><td>9,000원/kg</td></tr>
+<tr><td>프리미엄</td><td>16,000원/kg</td></tr>
+<tr><td>자연식·화식</td><td>32,000원/kg</td></tr>
+<tr><td rowspan="3">간식(월)</td><td>거의 안 줌</td><td>8,000원</td></tr>
+<tr><td>보통</td><td>22,000원</td></tr>
+<tr><td>많이</td><td>45,000원</td></tr>
+<tr><td rowspan="2">위생·용품(월)</td><td>기본</td><td>강아지 14,000원 · 고양이 18,000원(모래)</td></tr>
+<tr><td>넉넉히</td><td>기본의 1.8배</td></tr>
+<tr><td rowspan="2">병원(연간)</td><td>기본 예방접종·검진</td><td>220,000원 → 월 약 18,300원</td></tr>
+<tr><td>노령·지병 관리</td><td>600,000원 → 월 50,000원</td></tr></table></p>
+<p class="lim"><b>한계 — 세 가지를 꼭 감안하세요.</b><br>① <b>진료비는 병원 자율 책정</b>이라 지역·병원별로 몇 배까지 차이 납니다. 위 연간 금액은 평상시 기준의 대략값입니다.<br>② <b>수술·만성질환·응급 진료는 포함돼 있지 않습니다.</b> 보호자를 실제로 힘들게 하는 건 매달 나가는 돈이 아니라 한 번에 수백만 원이 나가는 순간입니다. 이 숫자는 "최소한 이 정도는 든다"는 하한선으로 읽어 주세요.<br>③ 여기서는 사료 계수를 <b>평균적인 성견 1.4(고양이 1.2)로 고정</b>합니다. 중성화·성장기·노령 상태를 반영한 정확한 급여량은 <a href="/food/">사료 급여량 계산기</a>에서 확인하세요 — 두 페이지의 사료량이 다르게 나오는 것은 이 때문입니다.</p>
 </div>
 
 <div class="authorbox">

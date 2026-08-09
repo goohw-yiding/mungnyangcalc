@@ -25,6 +25,17 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","url":"https://mungnyangcalc.com/vaccine/","dateModified":"2026-08-09","inLanguage":"ko","isPartOf":{"@type":"WebSite","name":"멍냥계산기","url":"https://mungnyangcalc.com/"},"publisher":{"@type":"Organization","name":"멍냥계산기","url":"https://mungnyangcalc.com/"},"mainContentOfPage":{"@type":"WebPageElement","cssSelector":".formula"}}
 </script>
+<meta property="og:title" content="강아지 예방접종 시기 계산기 · 고양이 예방접종 일정표">
+<meta property="og:description" content="강아지 예방접종 시기, 고양이 예방접종 일정을 생일만 입력하면 날짜별로 계산해주는 무료 도구. 종합백신·코로나·켄넬코프·광견병 접종 스케줄을 한눈에.">
+<meta property="og:image" content="https://mungnyangcalc.com/og/vaccine.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://mungnyangcalc.com/vaccine/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="멍냥계산기">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mungnyangcalc.com/og/vaccine.png">
 </head>
 <body>
 <div class="wrap">
@@ -99,12 +110,26 @@
 </div>
 
 <div class="formula">
-<h3>이 계산기가 쓰는 기준</h3>
-<code class="fx">기초 접종 — 생후 6~8주 시작, 2~4주 간격으로 3~4회</code>
-<code class="fx">마지막 기초 접종 — 생후 16주 이후에 1회 포함</code>
-<code class="fx">추가 접종 — 기초 완료 후 6개월~1년, 이후 주기 접종</code>
-<p>WSAVA 백신 가이드라인과 국내 동물병원에서 통용되는 일정 범위를 바탕으로 날짜를 계산합니다. 생후 16주 이후 접종을 반드시 포함하는 이유는, 어미에게서 받은 이행항체가 그 전에는 백신 효과를 막을 수 있기 때문입니다.</p>
-<p class="lim"><b>한계</b> — 백신 종류(종합·켄넬코프·인플루엔자·전염성복막염 등), 시작 시기, 추가접종 간격은 국가·병원·개체 건강 상태에 따라 다릅니다. 이 계산기는 <b>예상 날짜를 미리 챙기기 위한 달력</b>이며 처방이 아닙니다. 이미 접종을 시작했다면 접종 수첩의 실제 기록이 우선합니다. 광견병 접종 시기·지자체 지원 여부는 거주지 시·군·구청 공고를 확인하세요.</p>
+<h3>이 계산기가 쓰는 접종 일정</h3>
+<code class="fx">강아지 — 생후 6·8·10·12·14·16주 (2주 간격 6회)</code>
+<code class="fx">고양이 — 생후 8·11·14·17·18주 (3주 간격 5회)</code>
+<code class="fx">기준일 = 생일 + (주차 × 7일)</code>
+<p>국내 동물병원에서 통용되는 일정 범위를 바탕으로 날짜를 계산합니다. 실제로 안내하는 내용은 다음과 같습니다.
+<table class="rt"><tr><th>주차</th><th>강아지</th></tr>
+<tr><td>6주</td><td>종합백신(DHPPL) 1차 + 코로나 장염 1차</td></tr>
+<tr><td>8주</td><td>종합백신 2차 + 코로나 장염 2차</td></tr>
+<tr><td>10주</td><td>종합백신 3차 + 켄넬코프 1차</td></tr>
+<tr><td>12주</td><td>종합백신 4차 + 켄넬코프 2차</td></tr>
+<tr><td>14주</td><td>종합백신 5차 + 인플루엔자 1차</td></tr>
+<tr><td>16주</td><td>인플루엔자 2차 + 광견병 + 항체가 검사</td></tr></table>
+<table class="rt"><tr><th>주차</th><th>고양이</th></tr>
+<tr><td>8주</td><td>종합백신(FVRCP) 1차</td></tr>
+<tr><td>11주</td><td>종합백신 2차</td></tr>
+<tr><td>14주</td><td>종합백신 3차 + 백혈병 1차(선택)</td></tr>
+<tr><td>17주</td><td>백혈병 2차(선택) + 광견병</td></tr>
+<tr><td>18주</td><td>항체가 검사</td></tr></table>
+마지막 접종을 생후 16주 이후에 두는 이유는, 어미에게서 받은 이행항체가 그 전에는 백신 효과를 막을 수 있기 때문입니다.</p>
+<p class="lim"><b>한계</b> — 이 일정은 국내에서 폭넓게 쓰이는 <b>한 가지 예시</b>이며 유일한 정답이 아닙니다. WSAVA 등 국제 가이드라인은 코로나 장염 백신처럼 권장 등급이 낮은 항목을 두고 있고, 병원마다 접종 항목·횟수·간격을 달리 잡습니다. 이 계산기는 <b>예상 날짜를 미리 챙기기 위한 달력</b>이지 처방이 아닙니다. 이미 접종을 시작했다면 접종 수첩의 실제 기록이 우선하며, 일정이 밀렸을 때 다시 처음부터 맞아야 하는지는 병원에서 판단합니다. 광견병 접종 시기와 지자체 지원 여부는 거주지 시·군·구청 공고를 확인하세요.</p>
 </div>
 
 <div class="authorbox">
