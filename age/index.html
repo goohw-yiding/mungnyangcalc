@@ -21,13 +21,24 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"강아지 나이는 어떻게 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"'개 나이 × 7'은 옛날 방식입니다. 개는 생후 1~2년에 빠르게 성숙하고 이후 노화 속도가 견종 크기에 따라 달라집니다. 첫 1년은 사람 나이 약 15세, 2년째는 약 24세에 해당하며, 이후 소형견은 매년 약 4세, 중형견은 약 5세, 대형견은 약 6~7세씩 나이를 먹습니다."}},{"@type":"Question","name":"고양이 나이는요?","acceptedAnswer":{"@type":"Answer","text":"고양이는 첫 1년이 사람 나이 15세, 2년째가 24세, 이후 매년 약 4세씩 더해집니다. 실내묘 기준이며 실외 생활 고양이는 노화가 더 빠를 수 있습니다."}},{"@type":"Question","name":"노령견·노령묘 기준은?","acceptedAnswer":{"@type":"Answer","text":"일반적으로 소형견 11세, 중형견 10세, 대형견 8세, 고양이 11세 전후부터 노령기로 봅니다. 노령기에는 건강검진 주기를 6개월에 한 번으로 줄이는 것이 권장됩니다."}}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"멍냥계산기","url":"https://mungnyangcalc.com/","description":"반려동물 계산기와 보호자 가이드를 제공하는 무료 정보 사이트","publishingPrinciples":"https://mungnyangcalc.com/editorial/","email":"goohw593@gmail.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://mungnyangcalc.com/age/","dateModified":"2026-08-09","inLanguage":"ko","isPartOf":{"@type":"WebSite","name":"멍냥계산기","url":"https://mungnyangcalc.com/"},"publisher":{"@type":"Organization","name":"멍냥계산기","url":"https://mungnyangcalc.com/"},"mainContentOfPage":{"@type":"WebPageElement","cssSelector":".formula"}}
+</script>
 </head>
 <body>
 <div class="wrap">
 <header class="site"><a href="/"><span class="paw">🐾</span> 멍냥계산기</a></header>
 
+<nav class="navchips" aria-label="계산기 바로가기"><a href="/">홈</a><a href="/age/" class="on" aria-current="page">나이</a><a href="/food/">사료량</a><a href="/walk/">산책</a><a href="/vaccine/">접종</a><a href="/cost/">양육비</a><a href="/dday/">D-day</a><a href="/mbti/">성격테스트</a><a href="/pet-travel/">동반여행</a><a href="/blog/">가이드</a></nav>
+
 <h1>강아지·고양이 나이 계산기</h1>
 <p class="desc">우리 아이는 사람 나이로 몇 살일까요? 견종 크기에 따라 노화 속도가 다른 것까지 반영해 계산합니다.</p>
+
+<div class="meta"><span class="by">멍냥계산기 편집팀</span><span>최종 검토 2026년 8월 9일</span><a href="/editorial/">편집 원칙 ›</a></div>
+<div class="keytake"><strong>먼저 알아두실 것</strong><ul><li>"나이 × 7"은 실제 노화와 맞지 않습니다. 첫 1년이 이미 사람 15세 안팎입니다.</li><li>개는 몸집이 클수록 노화가 빠릅니다 — 2년째 이후 가산 나이가 소형견 4세, 대형견 6~7세로 다릅니다.</li><li>국제적으로 합의된 단일 환산 공식은 없습니다. 이 결과는 어림값입니다.</li></ul></div>
 
 <div class="card">
   <label>반려동물 종류</label>
@@ -55,12 +66,6 @@
     <div class="big" id="humanAge"></div>
     <div id="stage"></div>
     <div class="note">개체와 건강 상태에 따라 차이가 있을 수 있습니다.</div>
-    <a id="suppbuy" class="buybox" href="https://link.coupang.com/a/fiyl65SQxw" target="_blank" rel="nofollow sponsored noopener">
-      <span class="bb-ico">💪</span>
-      <span class="bb-txt"><b id="supp-title">우리 아이 근육·기력 챙기는 단백질 보충제</b><span class="bb-sub">쿠팡 로켓배송 인기 반려동물 영양제</span></span>
-      <span class="bb-arrow">›</span>
-    </a>
-    <div class="bb-disc">※ 이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정 수수료를 제공받습니다.</div>
     <button class="sharebtn" onclick="shareResult()">📤 결과 공유하기</button>
     <div class="reco"><h4>이런 것도 확인해보세요</h4><div class="recogrid">
       <a href="/food/"><span class="e">🍚</span> 하루 사료량 계산</a>
@@ -119,7 +124,29 @@
   <p>일반적으로 소형견 11세, 중형견 10세, 대형견 8세, 고양이 11세 전후부터 노령기로 봅니다. 노령기에는 건강검진 주기를 6개월에 한 번으로 줄이는 것이 권장됩니다.</p>
 </div>
 
-<footer>© 멍냥계산기 · 계산 결과는 참고용입니다. · <a href="/editorial/">편집 원칙</a> · <a href="/privacy/">개인정보처리방침</a></footer>
+<div class="formula">
+<h3>이 계산기가 쓰는 공식</h3>
+<code class="fx">첫 1년 = 사람 15세</code>
+<code class="fx">2년째 = 사람 24세 (1년째부터 +9세)</code>
+<code class="fx">3년째부터 = 24 + (나이−2) × 가산계수</code>
+<code class="fx">가산계수 — 소형견 4 · 중형견 5 · 대형견 6.5 · 고양이 4</code>
+<p>생후 1~2년의 급속한 성숙과 그 이후 완만해지는 노화를 나누어 계산하는, 수의학계에서 널리 쓰이는 근사식입니다. 노령기 판정은 소형견 11세·중형견 10세·대형견 8세·고양이 11세 전후를 기준으로 삼았습니다.</p>
+<p class="lim"><b>한계</b> — 개·고양이 나이를 사람 나이로 바꾸는 데에는 국제적으로 합의된 단일 공식이 없습니다. 이 환산은 사람과 동물의 생애주기를 겹쳐 놓은 비유에 가깝고, 같은 나이라도 품종·기저질환·중성화 여부·생활 환경에 따라 실제 노화 정도는 크게 다릅니다. 특히 대형견은 품종별 편차가 커서 가산계수 6.5가 잘 맞지 않는 경우가 있습니다.</p>
+</div>
+
+<div class="authorbox">
+  <span class="ab-ico">🐾</span>
+  <div>
+    <p class="ab-t">멍냥계산기 편집팀</p>
+    <p class="ab-d">저희는 수의사가 아닙니다. 대신 수의학계·공공기관이 공개한 기준을 정확히 옮기고 그 출처를 숨기지 않는 것을 역할로 삼습니다. 계산에 쓴 공식과 그 한계를 위에 그대로 공개하는 이유입니다. 틀린 곳을 발견하시면 <a href="/contact/">알려주세요</a> — 계산 오류 신고는 가장 높은 우선순위로 고칩니다. <a href="/about/">사이트 소개</a> · <a href="/editorial/">편집 원칙</a></p>
+  </div>
+</div>
+
+<div class="medical"><b>수의학 면책</b> — 이 계산 결과는 일반적인 정보 제공을 위한 것이며 수의학적 진단·치료·처방을 대신하지 않습니다. 기저질환이 있거나 임신·수유 중이거나 성장기인 경우, 또는 이상 징후가 보이는 경우에는 필요량과 관리 방법이 크게 달라지므로 반드시 동물병원에서 상담하세요.</div>
+
+<div class="refs"><h3>참고한 기준·자료</h3><ul><li><a href="https://www.aaha.org/" target="_blank" rel="noopener nofollow">AAHA(미국동물병원협회)</a> — 생애주기·백신 가이드라인</li><li><a href="https://www.avma.org/" target="_blank" rel="noopener nofollow">AVMA(미국수의사회)</a> — 반려동물 건강 가이드</li><li><a href="https://wsava.org/" target="_blank" rel="noopener nofollow">WSAVA(세계소동물수의사회)</a> — 국제 영양·백신 가이드라인</li><li><a href="https://www.kvma.or.kr/" target="_blank" rel="noopener nofollow">대한수의사회</a> — 국내 수의 진료 안내</li></ul></div>
+
+<footer>© 멍냥계산기 · 계산 결과는 참고용이며 수의학적 진단을 대신하지 않습니다. · <a href="/about/">소개</a> · <a href="/editorial/">편집 원칙</a> · <a href="/contact/">문의</a> · <a href="/privacy/">개인정보처리방침</a></footer>
 </div>
 
 <script>
@@ -158,9 +185,6 @@ function calc(){
   else if(h<60)stage='건강 관리가 중요한 중년기예요 🩺';
   else stage='세심한 돌봄이 필요한 노년기예요 💛';
   document.getElementById('stage').textContent=stage;
-  document.getElementById('supp-title').textContent = h>=40
-    ? '나이 들수록 근육 지키기! 반려동물 단백질 보충제'
-    : '우리 아이 근육·기력 챙기는 단백질 보충제';
   window.__share='우리 아이는 사람 나이로 약 '+hr+'세! '+stage.replace(/[🌱💪🩺💛]/g,'').trim()+' 🐾 멍냥계산기';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));

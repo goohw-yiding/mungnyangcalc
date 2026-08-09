@@ -94,3 +94,21 @@ table.rt th{color:var(--sub);font-weight:600;font-size:.82rem}
 table.rt td.v{font-weight:700;text-align:right;color:var(--accent-dark)}
 article table.rt th{color:var(--ink);font-weight:700;font-size:.88rem;background:#fffaf3}
 article .note{font-size:.83rem;color:var(--sub);margin-top:-6px}
+/* ===== 계산기 신뢰 요소(공식 공개·네비·운영자) ===== */
+.formula{background:#fbfaf8;border:1px solid var(--line);border-left:4px solid var(--sub);border-radius:0 12px 12px 0;padding:16px 18px;margin:26px 0 0}
+.formula h3{font-size:.95rem;margin:0 0 10px;color:var(--ink)}
+.formula .fx{display:block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 13px;margin:0 0 10px;font-family:'SFMono-Regular',Consolas,'D2Coding',monospace;font-size:.86rem;color:var(--ink);overflow-x:auto;white-space:nowrap}
+.formula p{font-size:.86rem;color:var(--sub);margin:0 0 8px}
+.formula p:last-child{margin-bottom:0}
+.formula .lim{font-size:.85rem;color:var(--sub);margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--line)}
+.formula .lim b{color:var(--ink)}
+.navchips{display:flex;gap:7px;overflow-x:auto;padding:0 0 14px;margin:-10px 0 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.navchips::-webkit-scrollbar{display:none}
+.navchips a{flex:0 0 auto;padding:7px 13px;border:1px solid var(--line);border-radius:20px;background:var(--card);color:var(--sub);text-decoration:none;font-size:.83rem;font-weight:600;white-space:nowrap}
+.navchips a:hover{border-color:var(--accent);color:var(--accent-dark)}
+.navchips a.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.authorbox{display:flex;gap:14px;align-items:flex-start;background:#fffaf3;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:26px 0 0}
+.authorbox .ab-ico{font-size:1.8rem;flex-shrink:0;line-height:1.2}
+.authorbox .ab-t{font-size:.9rem;font-weight:800;margin:0 0 4px}
+.authorbox .ab-d{font-size:.84rem;color:var(--sub);margin:0}
+.authorbox .ab-d a{color:var(--accent-dark)}
