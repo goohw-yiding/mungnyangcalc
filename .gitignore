@@ -1,1 +1,9 @@
-.vercel
+# 배포 대상이 아닌 것 — 예약작업이 프로젝트 폴더를 통째로 xcopy 해도 커밋되지 않게 하는 안전망
+node_modules/
+package.json
+package-lock.json
+
+# 감사·검증·생성 스크립트 (프로젝트 폴더에만 두고 배포하지 않음)
+_*.js
+_*.py
+vc.js
