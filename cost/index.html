@@ -14,6 +14,8 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
 <script src="/profile.js"></script>
+<script src="/products.js"></script>
+<script src="/advice.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"반려동물 월 양육비 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -119,6 +121,8 @@
   </div>
 </div>
 
+
+<div id="mny-advice"></div>
 <div class="card">
 <article>
 <h2>반려동물, 한 달에 정말 얼마나 들까</h2>
@@ -232,6 +236,7 @@ function calc(){
   window.__share='우리 아이 한 달 양육비는 약 '+fmt(total)+'! (연 '+fmt(total*12)+') 🐾 멍냥계산기';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+  window.MNY&&MNY.renderAdvice&&MNY.renderAdvice('mny-advice','cost',{species:species});
 }
 (function(){
   if(!window.MNY)return;var p=window.MNY.get();if(!p||!p.name)return;

@@ -53,6 +53,8 @@
 .regform label{margin-top:12px}
 </style>
 <script src="/profile.js"></script>
+<script src="/products.js"></script>
+<script src="/advice.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"멍냥계산기","description":"우리 강아지·고양이를 알아가는 공간","inLanguage":"ko"}
@@ -105,6 +107,7 @@ function renderHero(){
   var el=document.getElementById('hero');
   if(!p||!p.name||!p.birth){ el.innerHTML=emptyHTML(); return; }
   el.innerHTML=dashHTML(p);
+  if(window.MNY&&MNY.renderAdvice)MNY.renderAdvice('mny-advice','home');
 }
 function emptyHTML(){
   return '<div class="hero">'+
@@ -140,6 +143,7 @@ function dashHTML(p){
     '</div>'+
   '</div>'+
   '<button class="sharebtn share-hero" onclick="shareProfile()">📤 '+esc(p.name)+' 프로필 카드 공유하기</button>'+
+  '<div id="mny-advice"></div>'+
   '<h2 class="sec-title">'+esc(p.name)+'에 대해 더 알아보기</h2>'+
   '<div class="actions">'+
     act('/food/','🍚','하루 사료량','체중으로 자동 계산돼요')+
@@ -149,6 +153,7 @@ function dashHTML(p){
     act('/age/','📅','나이 자세히 보기',(window.MNY.lifeStage(h)||'생애 단계'))+
     act('/dday/','🎂','기념일 D-day','다가오는 기념일을 챙겨요')+
   '</div>';
+
 }
 function pm(label,val,raw,warn){
   return '<div class="pmetric"><div class="pm-label">'+label+'</div><div class="pm-val'+(warn?' pm-warn':'')+'">'+(raw?val:esc(String(val)))+'</div></div>';

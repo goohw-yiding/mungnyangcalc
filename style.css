@@ -113,3 +113,19 @@ article .note{font-size:.83rem;color:var(--sub);margin-top:-6px}
 .authorbox .ab-d{font-size:.84rem;color:var(--sub);margin:0}
 .authorbox .ab-d a{color:var(--accent-dark)}
 .bdate{display:block;margin-top:8px;font-size:.78rem;color:var(--sub);font-weight:600}
+/* ===== 처방(조건부 조언) ===== */
+.advice{background:#fffaf3;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0 0}
+.adv-h{font-size:.9rem;font-weight:800;color:var(--accent-dark);margin:0 0 12px}
+.adv-item+.adv-item{margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
+.adv-msg{font-size:.93rem;line-height:1.6;margin:0 0 10px;color:var(--ink)}
+.adv-why{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent-dark);text-decoration:none;padding:6px 0}
+.adv-why:hover{text-decoration:underline}
+.adv-buy{display:flex;align-items:center;gap:11px;margin-top:10px;padding:13px 15px;background:#fff;border:1.5px solid var(--accent);border-radius:11px;text-decoration:none;color:var(--ink)}
+.adv-buy:hover{background:#fff4e6}
+.adv-buy .ab-i{font-size:1.5rem;flex-shrink:0}
+.adv-buy .ab-b{display:flex;flex-direction:column;flex:1;line-height:1.35;min-width:0}
+.adv-buy .ab-b b{font-size:.95rem}
+.adv-buy .ab-b span{font-size:.79rem;color:var(--sub)}
+.adv-buy .ab-r{font-size:1.4rem;color:var(--accent-dark);font-weight:800}
+.adv-disc{font-size:.72rem;color:var(--sub);margin:12px 0 0;line-height:1.5}
+.adv-note{font-size:.72rem;color:var(--sub);margin:6px 0 0}

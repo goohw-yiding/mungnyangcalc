@@ -14,6 +14,8 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293445488923111" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/style.css">
 <script src="/profile.js"></script>
+<script src="/products.js"></script>
+<script src="/advice.js"></script>
 <script src="/fun.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"강아지·고양이 나이 계산기","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"inLanguage":"ko"}
@@ -85,6 +87,8 @@
   </div>
 </div>
 
+
+<div id="mny-advice"></div>
 <div class="card">
 <article>
 <h2>왜 "개 나이 × 7"은 틀렸을까</h2>
@@ -197,6 +201,7 @@ function calc(){
   window.__share='우리 아이는 사람 나이로 약 '+hr+'세! '+stage.replace(/[🌱💪🩺💛]/g,'').trim()+' 🐾 멍냥계산기';
   document.getElementById('result').classList.add('show');
   if(window.mnyCelebrate)mnyCelebrate(document.getElementById('result'));
+  window.MNY&&MNY.renderAdvice&&MNY.renderAdvice('mny-advice','age',{human:hr,ageY:y,species:species,size:size});
 }
 (function(){
   if(!window.MNY)return;var p=window.MNY.get();if(!p||!p.name||!p.birth)return;
