@@ -129,3 +129,6 @@ article .note{font-size:.83rem;color:var(--sub);margin-top:-6px}
 .adv-buy .ab-r{font-size:1.4rem;color:var(--accent-dark);font-weight:800}
 .adv-disc{font-size:.72rem;color:var(--sub);margin:12px 0 0;line-height:1.5}
 .adv-note{font-size:.72rem;color:var(--sub);margin:6px 0 0}
+table.vtable td.na{color:#c9c2b8}
+table.vtable th[scope="row"]{font-weight:700;color:var(--ink);font-size:.9rem}
+@media(max-width:520px){table.vtable th,table.vtable td{padding:8px 4px;font-size:.85rem}}
