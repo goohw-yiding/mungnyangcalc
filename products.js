@@ -20,42 +20,42 @@ window.MNYPROD = {
     ico: '🧩',
     sub: '마루 미끄러짐을 줄여 관절 부담을 낮춥니다',
     kind: 'affiliate',
-    url: '',            // ← 쿠팡 파트너스 링크
+    url: 'https://link.coupang.com/a/f6kuYm5NSe',
   },
   pet_stairs: {
     name: '반려동물 계단',
     ico: '🪜',
     sub: '소파·침대 오르내림 충격을 줄여 줍니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f6kw8UiDK0',
   },
   cool_mat: {
     name: '쿨매트',
     ico: '❄️',
     sub: '바닥 체감온도를 낮춰 줍니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f6kzFEFicC',
   },
   cat_tower: {
     name: '캣타워',
     ico: '🏗️',
     sub: '수직 공간은 고양이 스트레스를 줄입니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f6kBTc3jwa',
   },
   cat_scratcher: {
     name: '스크래처',
     ico: '🪵',
     sub: '긁는 본능을 대체할 자리를 만들어 줍니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f6kFqChGH6',
   },
   cat_hideout: {
     name: '숨숨집',
     ico: '🏠',
     sub: '숨을 곳이 있으면 낯선 상황에 덜 예민해집니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f6kHCv0Y44',
   },
 
   /* ── 이미 운영 중인 링크 ─────────────────────────── */

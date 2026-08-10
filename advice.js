@@ -181,12 +181,19 @@
     if (!res.list.length) { el.innerHTML = ''; return 0; }
 
     var parts = [], anyAff = false, ids = [];
+    var shown = {}, MAX_BTN = 2, btnCount = 0;   // 상품 버튼: 중복 금지 + 페이지당 최대 2개
+    function btn(key, adviceId) {
+      if (!key || shown[key] || btnCount >= MAX_BTN) return { html: '', affiliate: false };
+      var o = prodHTML(key, adviceId, page);
+      if (o.html) { shown[key] = 1; btnCount++; }
+      return o;
+    }
     for (var i = 0; i < res.list.length; i++) {
       var r = res.list[i].rule, c = res.list[i].c;
       var why = typeof r.why === 'function' ? r.why(c) : r.why;
       var msg = r.msg(c);
-      var b1 = prodHTML(r.prod, r.id, page);
-      var b2 = i === 0 ? prodHTML(r.prod2, r.id, page) : { html: '', affiliate: false };
+      var b1 = btn(r.prod, r.id);
+      var b2 = btn(r.prod2, r.id);
       if (b1.affiliate || b2.affiliate) anyAff = true;
       ids.push(r.id);
       parts.push(
