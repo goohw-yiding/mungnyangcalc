@@ -58,6 +58,47 @@
       },
       why: null, prod: 'cat_tower', prod2: 'cat_scratcher' },
 
+    /* ── 급수(2026-08-11) ─────────────────────────────
+       계산 결과(bowl/ftype)가 넘어왔을 때만 뜬다. 계산 전에는 침묵.
+       습식을 먹어 이미 충분한 아이에게 정수기를 권하지 않는 것이 이 규칙의 핵심이다. */
+    /* ⚠️ hasFood 없이는 판단하지 않는다 — 사료량을 안 넣으면 결과값은 '총 수분'이지
+       '물그릇 목표'가 아니다. 그걸 모른 채 "사료 수분이 거의 없다"고 말하면 거짓말이 된다. */
+    { id: 'water_enough',
+      pages: ['water'],
+      when: function (c) {
+        return c.calc && c.calc.hasFood && c.calc.bowl != null && c.calc.ftype === 'wet' && c.calc.bowl <= 100;
+      },
+      msg: function (c) {
+        return '사료에서 들어오는 수분만으로 하루 필요량의 상당 부분이 채워지는 계산입니다. ' +
+               '물그릇으로는 ' + c.calc.bowl + 'ml 정도면 되니, 물을 적게 마시는 것처럼 보여도 이상한 상황은 아닙니다. ' +
+               '지금은 새 물건보다 물그릇을 늘 깨끗하게 유지하는 쪽이 낫습니다.';
+      },
+      why: { href: '/blog/cat-water/', label: '고양이가 물을 안 마셔요' },
+      prod: null },
+
+    { id: 'water_gap',
+      pages: ['water'],
+      when: function (c) {
+        return c.calc && c.calc.hasFood && c.calc.bowl != null && c.calc.ftype !== 'wet' && c.calc.bowl >= 150;
+      },
+      msg: function (c) {
+        return '사료에서 오는 수분이 거의 없어서, 하루 ' + c.calc.bowl + 'ml를 물그릇으로 채워야 하는 계산입니다. ' +
+               '아이를 설득하는 것보다 마시기 쉬운 자리를 늘리는 편이 빠릅니다. ' +
+               '자주 머무는 방마다 물그릇을 하나씩 두는 것부터 해 보세요.';
+      },
+      why: { href: '/water/#more', label: '물을 더 마시게 하는 법' },
+      prod: 'water_bowl_wide', prod2: 'pet_fountain' },
+
+    { id: 'water_cat_setup',
+      pages: ['water'],
+      when: function (c) { return c.calc && c.calc.bowl != null && c.p && c.p.species === 'cat'; },
+      msg: function () {
+        return '고양이는 수염이 그릇 벽에 닿는 것을 싫어하고, 먹는 자리와 물 마시는 자리를 나누려는 습성이 있습니다. ' +
+               '넓고 얕은 그릇으로 바꾸고 밥그릇·화장실에서 떨어뜨려 두는 것만으로 마시는 양이 달라지기도 합니다.';
+      },
+      why: { href: '/blog/cat-fountain-guide/', label: '정수기 고르는 기준 5가지' },
+      prod: 'water_bowl_wide', prod2: 'pet_fountain' },
+
     { id: 'senior_joint',
       pages: ['age', 'cost', 'walk', 'home'],
       when: function (c) { return c.human != null && c.human >= 60; },
