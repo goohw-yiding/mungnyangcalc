@@ -85,6 +85,24 @@ window.MNYPROD = {
     kind: 'affiliate',
     url: 'https://link.coupang.com/a/fiyb17qpqu',
   },
+
+  /* ── 입양 준비물(2026-08-11 신설) ────────────────────
+     보호소에서 데려오는 날 바로 필요한 것들. url이 비어 있어도
+     체크리스트 문장은 그대로 나간다(advice.js RULES 'adopt_*' 참고). */
+  pet_carrier: {
+    name: '이동장/캐리어',
+    ico: '🧳',
+    sub: '데려오는 날부터 병원 방문까지 계속 씁니다',
+    kind: 'affiliate',
+    url: '',
+  },
+  starter_bowl_set: {
+    name: '밥그릇·물그릇 세트',
+    ico: '🍽️',
+    sub: '첫날부터 바로 필요한 기본 용품입니다',
+    kind: 'affiliate',
+    url: '',
+  },
 };
 
 /* 링크가 채워진 상품 수 (콘솔 확인용) */
