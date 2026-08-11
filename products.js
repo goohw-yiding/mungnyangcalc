@@ -86,22 +86,36 @@ window.MNYPROD = {
     url: 'https://link.coupang.com/a/fiyb17qpqu',
   },
 
-  /* ── 입양 준비물(2026-08-11 신설) ────────────────────
-     보호소에서 데려오는 날 바로 필요한 것들. url이 비어 있어도
-     체크리스트 문장은 그대로 나간다(advice.js RULES 'adopt_*' 참고). */
-  pet_carrier: {
-    name: '이동장/캐리어',
+  /* ── 입양 준비물(2026-08-11 신설, 08-12 강아지/고양이 링크 확정) ──
+     보호소에서 데려오는 날 바로 필요한 것들. 종별로 다른 상품을 쓴다
+     (advice.js RULES 'adopt_checklist_dog'/'adopt_checklist_cat' 참고). */
+  pet_carrier_dog: {
+    name: '강아지 이동장',
     ico: '🧳',
     sub: '데려오는 날부터 병원 방문까지 계속 씁니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f7LaroCGT6',
   },
-  starter_bowl_set: {
+  pet_carrier_cat: {
+    name: '고양이 이동장',
+    ico: '🧳',
+    sub: '낯선 이동엔 안정감 있는 이동장이 꼭 필요합니다',
+    kind: 'affiliate',
+    url: 'https://link.coupang.com/a/f7LdnjZ0gK',
+  },
+  starter_bowl_set_dog: {
     name: '밥그릇·물그릇 세트',
     ico: '🍽️',
     sub: '첫날부터 바로 필요한 기본 용품입니다',
     kind: 'affiliate',
-    url: '',
+    url: 'https://link.coupang.com/a/f7Lguh6jBY',
+  },
+  starter_bowl_set_cat: {
+    name: '고양이 이중 식기',
+    ico: '🍽️',
+    sub: '밥과 물을 한 번에, 자리 차지도 적습니다',
+    kind: 'affiliate',
+    url: 'https://link.coupang.com/a/f7LkBefYJg',
   },
 };
 
