@@ -9,12 +9,16 @@
 // ⚠️ 필드명은 공개된 v2 스키마 기준 최선 추정치다. 실제 키로 첫 호출 후
 //    응답 원본을 한 번 찍어보고 다르면 여기 KIND/AGE/WEIGHT 등 매핑만 고치면 된다.
 //    (클라이언트 쪽도 여러 후보 필드명을 다 훑도록 방어적으로 짜 두었다)
-const BASE = "https://apis.data.go.kr/1543061/abandonmentPublicSrvc_v2";
+const BASE = "https://apis.data.go.kr/1543061/abandonmentPublicService_v2";
+// ↑ 2026-08-11 활용신청 승인 화면에서 실제 End Point 확인 후 정정
+//   (Srvc 아니라 Service 스펠 — 데이터포털 페이지가 JS 렌더라 원래 못 봤던 부분)
 
 // 허용된 오퍼레이션만 프록시(임의 요청 차단)
 const OPS = {
   sido: "sido_v2",           // 시도 코드 목록
   sigungu: "sigungu_v2",     // 시군구 코드 목록 (upr_cd 필요)
+  shelter: "shelter_v2",     // 보호소 목록
+  kind: "kind_v2",           // 품종 코드 목록 (upKindCd 필요)
   abandon: "abandonmentPublic_v2", // 유기동물 목록 (메인)
 };
 

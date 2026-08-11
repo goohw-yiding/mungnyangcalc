@@ -164,8 +164,9 @@ async function fetchPage() {
 let seq = 0;
 function card(it) {
   const id = 'an' + (seq++);
-  const kind = field(it, ['kindCd', 'kindNm', 'kind']) || '품종 미상';
-  const isCat = /고양이|CAT/i.test(kind);
+  const kind = field(it, ['kindFullNm', 'kindNm', 'kind']) || '품종 미상';
+  const upKindNm = field(it, ['upKindNm']);
+  const isCat = upKindNm ? upKindNm === '고양이' : /고양이|CAT/i.test(kind);
   const age = field(it, ['age', 'ageCd']);
   const weightRaw = field(it, ['weight', 'weightCd']);
   const weight = parseFloat(weightRaw) || null;
@@ -175,7 +176,7 @@ function card(it) {
   const careNm = field(it, ['careNm', 'shelterNm']);
   const careTel = field(it, ['careTel', 'shelterTel']);
   const careAddr = field(it, ['careAddr', 'careAddr1']);
-  const img = field(it, ['popfile', 'filename', 'imageUrl']);
+  const img = field(it, ['popfile1', 'popfile2', 'popfile', 'filename', 'imageUrl']);
   window['__an' + id] = { species: isCat ? 'cat' : 'dog', weight: weight };
   const imgHtml = img ? ('<img loading="lazy" src="' + img.replace(/^http:/, 'https:') + '" alt="' + kind + '" onerror="this.outerHTML=\'<div class=noimg>' + (isCat ? '🐱' : '🐶') + '</div>\'">')
     : ('<div class="noimg">' + (isCat ? '🐱' : '🐶') + '</div>');
