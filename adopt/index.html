@@ -34,7 +34,7 @@
 </script>
 <meta property="og:title" content="유기동물 입양 정보 - 보호소 대기 동물 조회">
 <meta property="og:description" content="전국 보호소 입양 대기 동물을 찾아보고, 데려오면 바로 필요한 준비물을 확인하세요 🐾">
-<meta property="og:image" content="https://mungnyangcalc.com/og/home.png">
+<meta property="og:image" content="https://mungnyangcalc.com/og/adopt.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://mungnyangcalc.com/adopt/">
@@ -42,7 +42,7 @@
 <meta property="og:site_name" content="멍냥계산기">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mungnyangcalc.com/og/home.png">
+<meta name="twitter:image" content="https://mungnyangcalc.com/og/adopt.png">
 <style>
 .acard{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
 .acard img{width:92px;height:92px;object-fit:cover;border-radius:10px;flex-shrink:0;background:#f0eadf}
@@ -177,7 +177,10 @@ function card(it) {
   const careTel = field(it, ['careTel', 'shelterTel']);
   const careAddr = field(it, ['careAddr', 'careAddr1']);
   const img = field(it, ['popfile1', 'popfile2', 'popfile', 'filename', 'imageUrl']);
-  window['__an' + id] = { species: isCat ? 'cat' : 'dog', weight: weight };
+  window['__an' + id] = {
+    species: isCat ? 'cat' : 'dog', weight: weight, kind: kind, age: age,
+    sexLabel: sexLabel, careNm: careNm, careTel: careTel, careAddr: careAddr
+  };
   const imgHtml = img ? ('<img loading="lazy" src="' + img.replace(/^http:/, 'https:') + '" alt="' + kind + '" onerror="this.outerHTML=\'<div class=noimg>' + (isCat ? '🐱' : '🐶') + '</div>\'">')
     : ('<div class="noimg">' + (isCat ? '🐱' : '🐶') + '</div>');
   const tel = careTel ? ('<a href="tel:' + careTel.replace(/[^0-9]/g, '') + '">📞 ' + careTel + '</a>') : '';
@@ -192,10 +195,21 @@ function card(it) {
 function pickAnimal(id) {
   const a = window['__an' + id]; if (!a) return;
   document.getElementById('pickedWrap').innerHTML =
-    '<div class="picked" id="pickedBox"><b>선택한 아이 기준으로 준비물을 안내해 드릴게요' + (a.weight ? ' (약 ' + a.weight + 'kg)' : '') + '</b><div id="mny-advice"></div></div>';
+    '<div class="picked" id="pickedBox"><b>선택한 아이 기준으로 준비물을 안내해 드릴게요' + (a.weight ? ' (약 ' + a.weight + 'kg)' : '') + '</b><div id="mny-advice"></div>' +
+    '<button class="sharebtn" onclick="shareAnimal(\'' + id + '\')">📤 이 아이 소식 공유하기</button></div>';
   if (window.MNY && MNY.renderAdvice) MNY.renderAdvice('mny-advice', 'adopt', { species: a.species, weight: a.weight, picked: true });
   document.getElementById('pickedBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (typeof gtag === 'function') gtag('event', 'adopt_pick', { species: a.species });
+}
+
+function shareAnimal(id) {
+  const a = window['__an' + id]; if (!a) return;
+  const emo = a.species === 'cat' ? '🐱' : '🐶';
+  window.__share = emo + ' ' + a.kind + (a.age ? '(' + a.age + ')' : '') + '가 ' +
+    (a.careNm || '보호소') + '에서 새 가족을 기다리고 있어요. ' +
+    (a.careTel ? '문의: ' + a.careTel + ' — ' : '') + '멍냥계산기 유기동물 입양정보 🐾';
+  if (window.shareResult) shareResult();
+  if (typeof gtag === 'function') gtag('event', 'adopt_share', { species: a.species });
 }
 </script>
 </body>
