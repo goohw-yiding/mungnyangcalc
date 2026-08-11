@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="멍냥계산기">
+<rect width="512" height="512" rx="120" fill="#f4a259"/>
+<g fill="#ffffff"><ellipse cx="256" cy="292" rx="108" ry="84"/><ellipse cx="140" cy="176" rx="30" ry="40"/><ellipse cx="216" cy="124" rx="32" ry="43"/><ellipse cx="296" cy="124" rx="32" ry="43"/><ellipse cx="372" cy="176" rx="30" ry="40"/></g>
+<g fill="#f4a259">
+<rect x="208" y="263" width="96" height="20" rx="10"/>
+<rect x="208" y="301" width="96" height="20" rx="10"/>
+</g></svg>

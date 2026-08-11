@@ -45,6 +45,7 @@ article .cta{display:block;background:#fff8ee;border:1.5px solid var(--accent);b
 .pop{position:absolute;font-size:1.25rem;z-index:60;pointer-events:none;opacity:0;animation:popfly 1.6s ease-out forwards}
 @keyframes popfly{0%{opacity:0;transform:translateY(8px) scale(.5) rotate(-8deg)}18%{opacity:1}100%{opacity:0;transform:translateY(-52px) scale(1.3) rotate(10deg)}}
 header.site .paw{display:inline-block;animation:wiggle 3.5s ease-in-out infinite}
+header.site img.paw{width:28px;height:28px;vertical-align:-6px;border-radius:7px}
 @keyframes wiggle{0%,88%,100%{transform:rotate(0)}91%{transform:rotate(16deg)}94%{transform:rotate(-12deg)}97%{transform:rotate(8deg)}}
 .toolgrid a:hover .emoji{display:inline-block;animation:hop .45s ease}
 @keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px) rotate(-6deg)}}
