@@ -169,40 +169,6 @@
       },
       why: { href: '/blog/dog-weight/', label: '우리 아이 비만일까?' },
       prod: 'pet_scale' },
-
-    /* ── 입양(2026-08-11 신설) ─────────────────────────
-       보호소 동물을 고르면(species/weight가 넘어오면) 뜬다.
-       진단이 아니라 '데려오는 날 준비물' 안내다. */
-    { id: 'adopt_checklist_dog',
-      pages: ['adopt'],
-      when: function (c) { return c.calc && !!c.calc.picked && c.p && c.p.species !== 'cat'; },
-      msg: function (c) {
-        var w = c.calc.weight ? c.calc.weight + 'kg 기준으로 ' : '';
-        return '데려오는 날 가장 먼저 필요한 건 이동장입니다. ' + w +
-               '사료·물 필요량은 아래에서 바로 계산해 보실 수 있어요.';
-      },
-      why: { href: '/food/', label: '체중으로 하루 사료량 계산하기' },
-      prod: 'pet_carrier_dog', prod2: 'starter_bowl_set_dog' },
-
-    { id: 'adopt_checklist_cat',
-      pages: ['adopt'],
-      when: function (c) { return c.calc && !!c.calc.picked && c.p && c.p.species === 'cat'; },
-      msg: function (c) {
-        var w = c.calc.weight ? c.calc.weight + 'kg 기준으로 ' : '';
-        return '데려오는 날 가장 먼저 필요한 건 이동장입니다. ' + w +
-               '사료·물 필요량은 아래에서 바로 계산해 보실 수 있어요.';
-      },
-      why: { href: '/food/', label: '체중으로 하루 사료량 계산하기' },
-      prod: 'pet_carrier_cat', prod2: 'starter_bowl_set_cat' },
-
-    { id: 'adopt_species_cat',
-      pages: ['adopt'],
-      when: function (c) { return c.calc && c.calc.picked && c.p && c.p.species === 'cat'; },
-      msg: function () {
-        return '고양이는 새 환경에 예민한 편이라, 숨을 자리와 화장실부터 미리 마련해 두면 적응이 훨씬 빨라집니다.';
-      },
-      why: null,
-      prod: 'cat_hideout' },
   ];
 
   /* ── 후보 선정 ───────────────────────────────────── */
