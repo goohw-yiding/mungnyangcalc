@@ -133,3 +133,18 @@ article .note{font-size:.83rem;color:var(--sub);margin-top:-6px}
 table.vtable td.na{color:#c9c2b8}
 table.vtable th[scope="row"]{font-weight:700;color:var(--ink);font-size:.9rem}
 @media(max-width:520px){table.vtable th,table.vtable td{padding:8px 4px;font-size:.85rem}}
+
+/* ===== 일러스트 UI (2026-08-18) ===== */
+#walker img{width:46px;height:46px;display:block}
+.navchips a{transition:transform .18s ease,border-color .18s ease,color .18s ease}
+.navchips a:hover{transform:translateY(-2px)}
+.toolgrid a{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.toolgrid a:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,138,60,.14)}
+article .cta{transition:transform .2s ease,box-shadow .2s ease}
+article .cta:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(224,138,60,.15)}
+.hero-art{display:block;width:100%;max-width:460px;height:auto;margin:-26px auto -14px;animation:heroFloat 5.5s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-9px) rotate(-.7deg)}}
+@media(prefers-reduced-motion:reduce){
+  .hero-art{animation:none}
+  .toolgrid a:hover,.navchips a:hover,article .cta:hover,.toolgrid a:hover .tico{transform:none;box-shadow:none}
+}

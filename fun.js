@@ -2,14 +2,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const w = document.createElement('div');
   w.id = 'walker';
-  w.textContent = '🐕';
   w.setAttribute('aria-hidden', 'true');
+  const img = document.createElement('img');
+  img.src = '/img/walker-dog.svg';
+  img.alt = ''; img.width = 46; img.height = 46; img.decoding = 'async';
+  w.appendChild(img);
   document.body.appendChild(w);
-  const pets = ['🐕', '🐈', '🐩', '🐈‍⬛', '🐕‍🦺'];
+  const pets = ['/img/walker-dog.svg', '/img/walker-cat.svg'];
   let i = 0;
   w.addEventListener('animationiteration', () => {
     i = (i + 1) % pets.length;
-    w.textContent = pets[i];
+    img.src = pets[i];
   });
 });
 
