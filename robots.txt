@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://mungnyangcalc.com/sitemap-index.xml
 Sitemap: https://mungnyangcalc.com/sitemap.xml
+Sitemap: https://mungnyangcalc.com/rss.xml
